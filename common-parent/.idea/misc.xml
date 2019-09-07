@@ -13,10 +13,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../common-base/pom.xml" />
         <option value="$PROJECT_DIR$/../common-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/../common-controller/pom.xml" />
         <option value="$PROJECT_DIR$/../common-security/pom.xml" />
         <option value="$PROJECT_DIR$/../service-member/pom.xml" />
-        <option value="$PROJECT_DIR$/../common-controller/pom.xml" />
         <option value="$PROJECT_DIR$/../api-web/pom.xml" />
+        <option value="$PROJECT_DIR$/../service-push/pom.xml" />
       </list>
     </option>
   </component>

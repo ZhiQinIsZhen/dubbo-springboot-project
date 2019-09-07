@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54f43e70-fb5b-452f-91fc-f10e43562756" name="Default" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
+    <list default="true" id="7c6815e5-2711-41c0-add6-a10f78582a05" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../common-base/target/" />
     <ignored path="$PROJECT_DIR$/../common-dao/target/" />
+    <ignored path="$PROJECT_DIR$/../common-controller/target/" />
     <ignored path="$PROJECT_DIR$/../common-security/target/" />
+    <ignored path="$PROJECT_DIR$/../service-member/member-remote/target/" />
     <ignored path="$PROJECT_DIR$/../service-member/target/" />
     <ignored path="$PROJECT_DIR$/../service-member/member-dao/target/" />
     <ignored path="$PROJECT_DIR$/../service-member/member-provider/target/" />
-    <ignored path="$PROJECT_DIR$/../service-member/member-remote/target/" />
-    <ignored path="$PROJECT_DIR$/../common-controller/target/" />
     <ignored path="$PROJECT_DIR$/../api-web/target/" />
+    <ignored path="$PROJECT_DIR$/../service-push/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,20 +22,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/resources/application.properties">
+      <file leaf-file-name="ReqEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/constant/ReqEnum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="169">
+              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../api-web/src/main/resources/application.properties">
+      <file leaf-file-name="OpMessageProcessUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/util/OpMessageProcessUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            <state relative-caret-position="-145">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessagePushHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/MessagePushHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="48" column="41" lean-forward="true" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeartbeatHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/HeartbeatHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3221">
+              <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -51,8 +69,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getByUserId</find>
+      <find>jwt.header</find>
+      <find>balance</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="projectSyncType">
@@ -84,57 +106,43 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../service-member/member-dao/src/main/java/com/liyz/service/member/dao/UserInfoMapper.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-dao/pom.xml" />
-        <option value="$PROJECT_DIR$/../service-member/member-remote/pom.xml" />
-        <option value="$PROJECT_DIR$/../service-member/member-remote/src/main/java/com/liyz/service/member/bo/UserInfoBO.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-remote/src/main/java/com/liyz/service/member/constant/MemberEnum.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-remote/src/main/java/com/liyz/service/member/remote/RemoteUserService.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-remote/src/main/java/com/liyz/service/member/exception/RemoteMemberServiceException.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-remote/src/main/java/com/liyz/service/member/constant/MemberServiceCodeEnum.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-provider/pom.xml" />
-        <option value="$PROJECT_DIR$/../service-member/pom.xml" />
-        <option value="$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/MemberApplication.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/config/ScheduleConfigurer.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/provider/RemoteUserInfoServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/handler/UserInfoService.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/util/JwtTokenAnalysisUtil.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/util/HttpResponseUtil.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/core/JwtUserDetails.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/core/JwtAuthenticationEntryPoint.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/config/JwtBeansConfiguter.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/util/LoginInfoUtil.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/core/JwtUserDetailsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../common-base/src/main/java/com/liyz/common/base/result/PageResult.java" />
-        <option value="$PROJECT_DIR$/../common-base/src/main/java/com/liyz/common/base/result/Result.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/config/JwtBeansConfigurer.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/filter/JwtAuthenticationTokenFilter.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/annotation/Anonymous.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/util/JwtAuthenticationUtil.java" />
-        <option value="$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/config/SecurityConfigurer.java" />
-        <option value="$PROJECT_DIR$/../common-security/pom.xml" />
-        <option value="$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/advice/ControllerExceptionHandleAdvice.java" />
-        <option value="$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/config/SwaggerBaseConfigurer.java" />
-        <option value="$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/config/WebMvcConfigurer.java" />
-        <option value="$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/config/MyCorsFilter.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/WebApplication.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/config/RestTemplateConfig.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/config/SwaggerConfigurer.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/error/ErrorApiController.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/RuleVO.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/LoginVO.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/dto/LoginDTO.java" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/dto/page/PageBaseDTO.java" />
-        <option value="$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/HttpRequestUtil.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/../service-member/member-provider/src/main/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/auth/AuthenticationController.java" />
-        <option value="$PROJECT_DIR$/../api-web/pom.xml" />
-        <option value="$PROJECT_DIR$/../common-controller/pom.xml" />
-        <option value="$PROJECT_DIR$/../common-base/pom.xml" />
         <option value="$PROJECT_DIR$/../service-member/member-provider/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/../service-push/pom.xml" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/config/ScheduleConfigurer.java" />
+        <option value="$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/config/ScheduleConfigurer.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/session/ISession.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/listener/IListener.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/listener/DataListener.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/strap/BootStrap.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/PushApplication.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/util/SubMessageProcessUtil.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/task/MonitorTask.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/vo/DataMsg.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/vo/Request.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/WebSocketChannelInitializer.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/TextResponseHandler.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/MsgPackEncoderHandler.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/MsgPackDecodeHandler.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/MessagePushHandler.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/HeartbeatHandler.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/SessionStorage.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/OnlineUserStorage.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/ListenerStorage.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/DataTypeChannelStorage.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/bo/user/LoginRequest.java" />
+        <option value="$PROJECT_DIR$/../common-base/src/main/java/com/liyz/common/base/util/RestTemplateConfig.java" />
+        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/config/RestTemplateConfig.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/config/RestTemplateConfig.java" />
+        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/auth/AuthenticationController.java" />
+        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/UserInfoVO.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/business/UserInfoController.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/bo/sub/UserInfo.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/service/UserService.java" />
+        <option value="$PROJECT_DIR$/../service-push/README.md" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/util/OpMessageProcessUtil.java" />
+        <option value="$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/constant/ReqEnum.java" />
       </list>
     </option>
   </component>
@@ -149,7 +157,12 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="common-parent" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -164,6 +177,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -233,26 +247,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="api-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
@@ -281,11 +276,72 @@
             </path>
             <path>
               <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="common-controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="common-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="common-controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="advice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="common-controller" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
@@ -323,6 +379,147 @@
               <item name="member-provider" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="member" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-member" type="462c0819:PsiDirectoryNode" />
+              <item name="member-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="member" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-member" type="462c0819:PsiDirectoryNode" />
+              <item name="member-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="constant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="bo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="bo" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="push" type="462c0819:PsiDirectoryNode" />
+              <item name="task" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="common-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="service-push" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -330,7 +527,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -340,28 +536,28 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../api-web/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../service-push/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.liyz.api.web.dto.page" />
-      <recent name="com.liyz.api.web.vo" />
-      <recent name="com.liyz.api.web.controller.auth" />
-      <recent name="com.liyz.api.web.controller.error" />
-      <recent name="com.liyz.api.web.config" />
+      <recent name="com.liyz.service.push.config" />
+      <recent name="com.liyz.common.base.util" />
+      <recent name="com.liyz.service.push.task" />
+      <recent name="com.liyz.service.push.strap" />
+      <recent name="com.liyz.service.push.constant" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\github\dubbo-springboot-project\api-web\src\main\java\com\liyz\api\web\vo" />
-      <recent name="E:\github\dubbo-springboot-project\api-web\src\main\resources" />
-      <recent name="E:\github\dubbo-springboot-project\common-base\src\main\java\com\liyz\common\base\result" />
-      <recent name="E:\github\dubbo-springboot-project\service-member\member-provider\src\main\java\com\liyz\service\member\config" />
-      <recent name="E:\github\dubbo-springboot-project\service-member\member-provider\src\main\resources" />
+      <recent name="E:\github\dubbo-springboot-project\service-push" />
+      <recent name="E:\github\dubbo-springboot-project\service-push\src\main\java\com\liyz\service\push" />
+      <recent name="E:\github\dubbo-springboot-project\service-push\src\main\java\com\liyz\service\push\core" />
+      <recent name="E:\github\dubbo-springboot-project\service-push\src\main\resources" />
+      <recent name="E:\github\dubbo-springboot-project\service-member" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -401,6 +597,11 @@
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.liyz.service.member.MemberApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
+    <configuration name="PushApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="service-push" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.liyz.service.push.PushApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
     <configuration name="WebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.liyz.api.web.WebApplication" />
@@ -431,6 +632,7 @@
     <list>
       <item itemvalue="Spring Boot.MemberApplication" />
       <item itemvalue="Spring Boot.WebApplication" />
+      <item itemvalue="Spring Boot.PushApplication" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -438,47 +640,48 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54f43e70-fb5b-452f-91fc-f10e43562756" name="Default" comment="" />
-      <created>1567788857285</created>
+      <changelist id="7c6815e5-2711-41c0-add6-a10f78582a05" name="Default" comment="" />
+      <created>1567859467855</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1567788857285</updated>
-      <workItem from="1567788881712" duration="25502000" />
+      <updated>1567859467855</updated>
+      <workItem from="1567859492255" duration="7959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25502000" />
+    <option name="totallyTimeSpent" value="7959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" weight="0.32897604" />
-      <window_info anchor="right" id="Palette&#9;" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="2" weight="0.20095949" />
-      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Spring" order="4" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info id="Designer" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.23720682" />
-      <window_info anchor="right" id="Database" order="1" />
-      <window_info id="Learn" order="0" />
-      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="8" visible="true" weight="0.38235295" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" weight="0.19402985" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Learn" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4019608" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -492,157 +695,319 @@
     <option name="enabled" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/provider/RemoteUserInfoServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/resources/banner.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-member/member.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-member/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+        <state relative-caret-position="180">
+          <caret line="6" selection-start-line="6" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2280">
+          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/config/RedissonConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/config/ScheduleConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/a.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/listener/IListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="24" column="65" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/listener/DataListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1047">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/java/com/liyz/service/member/handler/UserInfoService.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/session/ISession.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-412">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/member-remote/src/main/java/com/liyz/service/member/remote/RemoteUserInfoService.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/service/DataService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/member-dao/src/main/java/com/liyz/service/member/dao/UserInfoMapper.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/PushApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+        <state relative-caret-position="690">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/member-remote/pom.xml">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/util/SubMessageProcessUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="150">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/maven/org/springframework/boot/spring-boot-autoconfigure/2.1.7.RELEASE/spring-boot-autoconfigure-2.1.7.RELEASE.jar!/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingBean.class">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/task/MonitorTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="150">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/util/LoginInfoUtil.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/strap/BootStrap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        <state relative-caret-position="150">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/vo/DataMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/WebSocketChannelInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/TextResponseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/MsgPackEncoderHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/MsgPackDecodeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/SessionStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/OnlineUserStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/ListenerStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/storage/DataTypeChannelStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/core/session/PushSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/config/ScheduleConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/vo/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../common-base/src/main/java/com/liyz/common/base/util/RestTemplateConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/config/RestTemplateConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/maven/org/springframework/security/spring-security-core/5.1.6.RELEASE/spring-security-core-5.1.6.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetailsService.class">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/config/RestTemplateConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/auth/AuthenticationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="68" column="14" lean-forward="true" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-member/member-remote/src/main/java/com/liyz/service/member/bo/UserInfoBO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="18" selection-start-line="18" selection-end-line="36" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/UserInfoVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/LoginVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/maven/org/springframework/spring-web/5.1.9.RELEASE/spring-web-5.1.9.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-963">
+          <caret line="183" column="17" selection-start-line="183" selection-start-column="17" selection-end-line="183" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../api-web/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/util/JwtTokenAnalysisUtil.java">
+    <entry file="jar://E:/maven/org/springframework/spring-web/5.1.9.RELEASE/spring-web-5.1.9.RELEASE.jar!/org/springframework/http/ResponseEntity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4020">
-          <caret line="163" column="45" selection-start-line="163" selection-start-column="45" selection-end-line="163" selection-end-column="45" />
+        <state relative-caret-position="297">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/business/UserInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../common-base/src/main/java/com/liyz/common/base/result/PageResult.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../common-base/src/main/java/com/liyz/common/base/result/Result.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/bo/user/LoginRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/core/JwtAuthenticationEntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="332">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/core/JwtUserDetails.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/model/bo/sub/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/core/JwtUserDetailsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="21" column="68" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/util/JwtAuthenticationUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1328">
-          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/config/SecurityConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="51" column="100" selection-start-line="51" selection-start-column="100" selection-end-line="51" selection-end-column="100" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/config/JwtBeansConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="26" />
+        <state relative-caret-position="122">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -651,396 +1016,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/filter/JwtAuthenticationTokenFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-592">
-          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-security/src/main/java/com/liyz/common/security/annotation/Anonymous.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="24" selection-start-column="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/a.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/config/SwaggerBaseConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="40" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1517#1532#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/config/WebMvcConfigurer.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/config/MyCorsFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/advice/ControllerExceptionHandleAdvice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/config/RestTemplateConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/a.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/LoginVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/RuleVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/vo/TableColumnVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/dto/LoginDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+        <state relative-caret-position="200">
+          <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#700#715#1" expanded="true" />
+            <element signature="e#760#778#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/dto/page/PageBaseDTO.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-controller/src/main/java/com/liyz/common/controller/HttpRequestUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="898">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/../service-push/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="317">
+            <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/WebApplication.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/MessagePushHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="20" column="76" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="990">
+          <caret line="48" column="41" lean-forward="true" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/resources/logback.xml">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/handler/HeartbeatHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="105" selection-end-column="13" />
+        <state relative-caret-position="-3221">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/config/SwaggerConfigurer.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/constant/ReqEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+        <state relative-caret-position="169">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/error/ErrorApiController.java">
+    <entry file="file://$PROJECT_DIR$/../service-push/src/main/java/com/liyz/service/push/util/OpMessageProcessUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/maven/org/slf4j/slf4j-log4j12/1.7.26/slf4j-log4j12-1.7.26-sources.jar!/org/slf4j/impl/StaticLoggerBinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/maven/org/projectlombok/lombok/1.16.20/lombok-1.16.20.pom">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-controller/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="36" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/java/com/liyz/api/web/controller/auth/AuthenticationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690">
-          <caret line="39" column="3" selection-end-line="126" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../common-base/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/maven/com/ctrip/framework/apollo/apollo-client/1.4.0/apollo-client-1.4.0.pom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://MAVEN/com.liyz.api:api-web:1.0.0-SNAPSHOT">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MAVEN</ID>
-          <OriginalElement>com.liyz.api:api-web:1.0.0-SNAPSHOT</OriginalElement>
-          <nodes>
-            <node x="" y="">com.liyz.api:api-web:1.0.0-SNAPSHOT</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo:jar:2.7.3</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo:jar:2.7.3/org.springframework:spring-context:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo:jar:2.7.3/org.javassist:javassist:jar:3.20.0-GA</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo:jar:2.7.3/io.netty:netty-all:jar:4.1.38.Final</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.curator:curator-recipes:jar:4.0.1</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.curator:curator-recipes:jar:4.0.1/org.apache.curator:curator-framework:jar:4.0.1</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.curator:curator-recipes:jar:4.0.1/org.apache.curator:curator-framework:jar:4.0.1/org.apache.curator:curator-client:jar:4.0.1</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.curator:curator-recipes:jar:4.0.1/org.apache.curator:curator-framework:jar:4.0.1/org.apache.curator:curator-client:jar:4.0.1/com.google.guava:guava:jar:20.0</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.zookeeper:zookeeper:jar:3.4.13</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.zookeeper:zookeeper:jar:3.4.13/log4j:log4j:jar:1.2.17</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.zookeeper:zookeeper:jar:3.4.13/jline:jline:jar:0.9.94</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.dubbo:dubbo-dependencies-zookeeper:pom:2.7.3/org.apache.zookeeper:zookeeper:jar:3.4.13/org.apache.yetus:audience-annotations:jar:0.5.0</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/com.github.pagehelper:pagehelper:jar:5.1.10</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/com.github.pagehelper:pagehelper:jar:5.1.10/com.github.jsqlparser:jsqlparser:jar:2.0</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.springframework:spring-beans:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.springframework:spring-beans:jar:5.1.9.RELEASE/org.springframework:spring-core:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.springframework:spring-beans:jar:5.1.9.RELEASE/org.springframework:spring-core:jar:5.1.9.RELEASE/org.springframework:spring-jcl:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/cglib:cglib:jar:3.3.0</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/cglib:cglib:jar:3.3.0/org.ow2.asm:asm:jar:7.1</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.liyz.common:common-base:jar:1.0.0-SNAPSHOT/org.apache.commons:commons-lang3:jar:3.8.1</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-autoconfigure:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.7.RELEASE/ch.qos.logback:logback-classic:jar:1.2.3</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.7.RELEASE/ch.qos.logback:logback-classic:jar:1.2.3/ch.qos.logback:logback-core:jar:1.2.3</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.7.RELEASE/org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.7.RELEASE/org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2/org.apache.logging.log4j:log4j-api:jar:2.11.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.7.RELEASE/org.slf4j:jul-to-slf4j:jar:1.7.26</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.7.RELEASE/javax.annotation:javax.annotation-api:jar:1.3.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-json:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-json:jar:2.1.7.RELEASE/com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.9</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-json:jar:2.1.7.RELEASE/com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.9</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-json:jar:2.1.7.RELEASE/com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.9</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.7.RELEASE/org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.22</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.7.RELEASE/org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.22</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.7.RELEASE/org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.22</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.hibernate.validator:hibernate-validator:jar:6.0.17.Final</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.hibernate.validator:hibernate-validator:jar:6.0.17.Final/org.jboss.logging:jboss-logging:jar:3.3.2.Final</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework:spring-web:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework:spring-webmvc:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-web:jar:2.1.7.RELEASE/org.springframework:spring-webmvc:jar:5.1.9.RELEASE/org.springframework:spring-expression:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-spi:jar:2.9.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-spi:jar:2.9.2/io.springfox:springfox-core:jar:2.9.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-spi:jar:2.9.2/io.springfox:springfox-core:jar:2.9.2/net.bytebuddy:byte-buddy:jar:1.9.16</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-spi:jar:2.9.2/io.springfox:springfox-core:jar:2.9.2/com.google.guava:guava:jar:28.0-jre</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-schema:jar:2.9.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-swagger-common:jar:2.9.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-swagger-common:jar:2.9.2/com.google.guava:guava:jar:28.0-jre</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-spring-web:jar:2.9.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/io.springfox:springfox-spring-web:jar:2.9.2/com.google.guava:guava:jar:28.0-jre</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/com.google.guava:guava:jar:28.0-jre</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/com.fasterxml:classmate:jar:1.4.0</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/org.springframework.plugin:spring-plugin-core:jar:1.2.0.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/org.springframework.plugin:spring-plugin-metadata:jar:1.2.0.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger2:jar:2.9.2/org.mapstruct:mapstruct:jar:1.2.0.Final</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.swagger:swagger-annotations:jar:1.5.23</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.swagger:swagger-models:jar:1.5.23</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.swagger:swagger-models:jar:1.5.23/com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/io.springfox:springfox-swagger-ui:jar:2.9.2</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.github.xiaoymin:swagger-bootstrap-ui:jar:1.9.5</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/com.github.xiaoymin:swagger-bootstrap-ui:jar:1.9.5/org.javassist:javassist:jar:3.25.0-GA</node>
-            <node x="" y="">com.liyz.common:common-controller:jar:1.0-SNAPSHOT/org.apache.commons:commons-lang3:jar:3.9</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/com.liyz.service:member-remote:jar:1.0.0-SNAPSHOT</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/com.liyz.service:member-remote:jar:1.0.0-SNAPSHOT/javax.validation:validation-api:jar:2.0.1.Final</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/com.liyz.service:member-remote:jar:1.0.0-SNAPSHOT/org.apache.commons:commons-lang3:jar:3.9</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-security:jar:2.1.7.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-security:jar:2.1.7.RELEASE/org.springframework:spring-aop:jar:5.1.9.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-security:jar:2.1.7.RELEASE/org.springframework.security:spring-security-config:jar:5.1.6.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-security:jar:2.1.7.RELEASE/org.springframework.security:spring-security-config:jar:5.1.6.RELEASE/org.springframework.security:spring-security-core:jar:5.1.6.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/org.springframework.boot:spring-boot-starter-security:jar:2.1.7.RELEASE/org.springframework.security:spring-security-web:jar:5.1.6.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/org.springframework.mobile:spring-mobile-device:jar:1.1.5.RELEASE</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/io.jsonwebtoken:jjwt:jar:0.9.0</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/io.jsonwebtoken:jjwt:jar:0.9.0/com.fasterxml.jackson.core:jackson-databind:jar:2.9.9</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/io.jsonwebtoken:jjwt:jar:0.9.0/com.fasterxml.jackson.core:jackson-databind:jar:2.9.9/com.fasterxml.jackson.core:jackson-core:jar:2.9.9</node>
-            <node x="" y="">com.liyz.common:common-security:jar:1.0.0-SNAPSHOT/org.apache.commons:commons-lang3:jar:3.9</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/com.ctrip.framework.apollo:apollo-core:jar:1.4.0</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/com.ctrip.framework.apollo:apollo-core:jar:1.4.0/com.google.code.gson:gson:jar:2.8.5</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/com.ctrip.framework.apollo:apollo-core:jar:1.4.0/com.google.guava:guava:jar:19.0</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/com.google.inject:guice:jar:4.1.0</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/com.google.inject:guice:jar:4.1.0/javax.inject:javax.inject:jar:1</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/com.google.inject:guice:jar:4.1.0/aopalliance:aopalliance:jar:1.0</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/com.google.inject:guice:jar:4.1.0/com.google.guava:guava:jar:28.0-jre</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/org.slf4j:slf4j-api:jar:1.7.26</node>
-            <node x="" y="">com.ctrip.framework.apollo:apollo-client:jar:1.4.0/org.yaml:snakeyaml:jar:1.23</node>
-            <node x="" y="">org.projectlombok:lombok:jar:1.16.20</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre/com.google.guava:failureaccess:jar:1.0.1</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre/com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre/com.google.code.findbugs:jsr305:jar:3.0.2</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre/org.checkerframework:checker-qual:jar:2.8.1</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre/com.google.errorprone:error_prone_annotations:jar:2.3.2</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre/com.google.j2objc:j2objc-annotations:jar:1.3</node>
-            <node x="" y="">com.google.guava:guava:jar:28.0-jre/org.codehaus.mojo:animal-sniffer-annotations:jar:1.17</node>
-            <node x="" y="">org.apache.commons:commons-lang3:jar:3.9</node>
-            <node x="" y="">com.alibaba:fastjson:jar:1.2.59</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.9532199447594123" x="3043.7781980113464" y="378.7781980113464" />
-          <SelectedNodes />
-          <Categories />
-          <VISIBILITY>All</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../api-web/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../service-member/member-provider/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="-145">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -1064,19 +1099,6 @@
           </splitter-proportions>
         </settings>
       </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>common-parent</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -1091,7 +1113,6 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

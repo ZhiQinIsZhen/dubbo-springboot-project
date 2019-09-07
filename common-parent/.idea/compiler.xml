@@ -15,6 +15,7 @@
         <module name="member-dao" />
         <module name="member-provider" />
         <module name="member-remote" />
+        <module name="service-push" />
       </profile>
     </annotationProcessing>
   </component>

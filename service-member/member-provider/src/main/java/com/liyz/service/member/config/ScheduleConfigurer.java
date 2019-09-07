@@ -26,8 +26,8 @@ public class ScheduleConfigurer implements SchedulingConfigurer {
     @Bean
     public Executor taskExecutor() {
         ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
-        scheduler.setPoolSize(5);
-        scheduler.setThreadNamePrefix("liyz-member-task-");
+        scheduler.setPoolSize(2);
+        scheduler.setThreadNamePrefix("service-member-task-");
         scheduler.setAwaitTerminationSeconds(60);
         scheduler.setWaitForTasksToCompleteOnShutdown(true);
         return scheduler;

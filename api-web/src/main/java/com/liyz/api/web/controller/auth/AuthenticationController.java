@@ -1,11 +1,8 @@
 package com.liyz.api.web.controller.auth;
 
-import com.github.pagehelper.PageInfo;
 import com.liyz.api.web.dto.LoginDTO;
-import com.liyz.api.web.dto.page.PageBaseDTO;
 import com.liyz.api.web.vo.LoginVO;
 import com.liyz.common.base.enums.CommonCodeEnum;
-import com.liyz.common.base.result.PageResult;
 import com.liyz.common.base.result.Result;
 import com.liyz.common.base.util.CommonConverterUtil;
 import com.liyz.common.controller.HttpRequestUtil;
@@ -31,11 +28,13 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  * 注释:登录鉴权
@@ -54,7 +53,7 @@ import java.util.Objects;
         })
 @Slf4j
 @RestController
-@RequestMapping("/lyz")
+@RequestMapping("/auth")
 public class AuthenticationController {
 
     @Autowired
@@ -81,15 +80,6 @@ public class AuthenticationController {
         }
         LoginVO loginVO = loginToken(device);
         return Result.success(loginVO);
-    }
-
-    @GetMapping("/page")
-    public PageResult<UserInfoBO> page(@Validated({PageBaseDTO.Page.class}) PageBaseDTO pageBaseDTO) {
-        if (Objects.isNull(pageBaseDTO)) {
-            pageBaseDTO = new PageBaseDTO();
-        }
-        PageInfo<UserInfoBO> pageInfo = remoteUserInfoService.pageList(pageBaseDTO.getPageNum(), pageBaseDTO.getPageSize());
-        return PageResult.success(pageInfo);
     }
 
     private boolean doAuth(LoginDTO loginDTO) {
