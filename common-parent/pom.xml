@@ -38,6 +38,7 @@
         <mysql.version>8.0.17</mysql.version>
 
         <member.remote.version>1.0.0-SNAPSHOT</member.remote.version>
+        <datasource.remote.version>1.0.0-SNAPSHOT</datasource.remote.version>
     </properties>
 
     <dependencies>
@@ -131,6 +132,11 @@
                 <groupId>com.liyz.service</groupId>
                 <artifactId>member-remote</artifactId>
                 <version>${member.remote.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.liyz.service</groupId>
+                <artifactId>datasource-remote</artifactId>
+                <version>${datasource.remote.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

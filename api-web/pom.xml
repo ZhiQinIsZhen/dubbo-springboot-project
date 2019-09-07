@@ -30,5 +30,9 @@
             <groupId>com.ctrip.framework.apollo</groupId>
             <artifactId>apollo-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.liyz.service</groupId>
+            <artifactId>datasource-remote</artifactId>
+        </dependency>
     </dependencies>
 </project>

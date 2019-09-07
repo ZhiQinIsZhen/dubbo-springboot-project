@@ -12,6 +12,9 @@
         <module name="common-controller" />
         <module name="common-dao" />
         <module name="common-security" />
+        <module name="datasource-dao" />
+        <module name="datasource-provider" />
+        <module name="datasource-remote" />
         <module name="member-dao" />
         <module name="member-provider" />
         <module name="member-remote" />
