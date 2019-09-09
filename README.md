@@ -51,4 +51,6 @@
 
 - service-datasource：多数据源数据质量管理服务
 
+- service-push：是一个基于netty的一个实时推送服务，当中的登陆依赖了 service-member，如果有认证中心或者需要修改认证的地方，可以自行修改
+
 - api-web：对外统一的api出口，当然了大家也可以在每个服务对外开放api，看情况而定
