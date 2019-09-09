@@ -11,6 +11,7 @@
         <module name="common-base" />
         <module name="common-controller" />
         <module name="common-dao" />
+        <module name="common-export" />
         <module name="common-security" />
         <module name="datasource-dao" />
         <module name="datasource-provider" />
@@ -18,8 +19,24 @@
         <module name="member-dao" />
         <module name="member-provider" />
         <module name="member-remote" />
-        <module name="service-push" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-web" target="1.8" />
+      <module name="common-base" target="1.8" />
+      <module name="common-controller" target="1.8" />
+      <module name="common-dao" target="1.8" />
+      <module name="common-export" target="1.8" />
+      <module name="common-parent" target="1.8" />
+      <module name="common-security" target="1.8" />
+      <module name="datasource-dao" target="1.8" />
+      <module name="datasource-provider" target="1.8" />
+      <module name="datasource-remote" target="1.8" />
+      <module name="member-dao" target="1.8" />
+      <module name="member-provider" target="1.8" />
+      <module name="member-remote" target="1.8" />
+      <module name="service-datasource" target="1.8" />
+      <module name="service-member" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

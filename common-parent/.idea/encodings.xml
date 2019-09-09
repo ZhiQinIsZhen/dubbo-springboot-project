@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/../common-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../common-controller" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../common-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../common-export" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../common-security" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../service-datasource" charset="UTF-8" />
@@ -15,7 +16,6 @@
     <file url="file://$PROJECT_DIR$/../service-member/member-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../service-member/member-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../service-member/member-remote" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../service-push" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../api-web/api-web.iml" filepath="$PROJECT_DIR$/../api-web/api-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common-base/common-base.iml" filepath="$PROJECT_DIR$/../common-base/common-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common-controller/common-controller.iml" filepath="$PROJECT_DIR$/../common-controller/common-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common-dao/common-dao.iml" filepath="$PROJECT_DIR$/../common-dao/common-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common-export/common-export.iml" filepath="$PROJECT_DIR$/../common-export/common-export.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-parent.iml" filepath="$PROJECT_DIR$/common-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../common-security/common-security.iml" filepath="$PROJECT_DIR$/../common-security/common-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-datasource/datasource-dao/datasource-dao.iml" filepath="$PROJECT_DIR$/../service-datasource/datasource-dao/datasource-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-datasource/datasource-provider/datasource-provider.iml" filepath="$PROJECT_DIR$/../service-datasource/datasource-provider/datasource-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-datasource/datasource-remote/datasource-remote.iml" filepath="$PROJECT_DIR$/../service-datasource/datasource-remote/datasource-remote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-member/member-dao/member-dao.iml" filepath="$PROJECT_DIR$/../service-member/member-dao/member-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-member/member-provider/member-provider.iml" filepath="$PROJECT_DIR$/../service-member/member-provider/member-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-member/member-remote/member-remote.iml" filepath="$PROJECT_DIR$/../service-member/member-remote/member-remote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-datasource/service-datasource.iml" filepath="$PROJECT_DIR$/../service-datasource/service-datasource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../service-member/service-member.iml" filepath="$PROJECT_DIR$/../service-member/service-member.iml" />
+    </modules>
+  </component>
+</project>
