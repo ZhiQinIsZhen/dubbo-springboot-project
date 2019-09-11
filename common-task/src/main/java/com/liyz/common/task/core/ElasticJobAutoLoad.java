@@ -39,6 +39,8 @@ public class ElasticJobAutoLoad {
 
     @Autowired
     ZookeeperRegistryCenter registryCenter;
+    @Autowired
+    SpringContextUtil springContextUtil;
 
     @PostConstruct
     public void initElasticJob() throws Exception {

@@ -12,4 +12,6 @@ public interface TaskConstant {
     String JobExceptionHandler = "com.dangdang.ddframe.job.executor.handler.impl.DefaultJobExceptionHandler";
 
     String ExecutorServiceHandler = "com.dangdang.ddframe.job.executor.handler.impl.DefaultExecutorServiceHandler";
+
+    String DEFAULT_DATASOURCE = "dataSource";
 }
