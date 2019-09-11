@@ -7,6 +7,8 @@ import com.liyz.api.web.vo.RuleVO;
 import com.liyz.common.base.result.PageResult;
 import com.liyz.common.base.result.Result;
 import com.liyz.common.base.util.CommonConverterUtil;
+import com.liyz.common.controller.annotation.MappingLimit;
+import com.liyz.common.controller.constant.LimitType;
 import com.liyz.service.datasource.bo.RuleBO;
 import com.liyz.service.datasource.remote.RemoteRuleService;
 import io.swagger.annotations.Api;
@@ -60,6 +62,7 @@ public class RuleController {
         return Result.success(result);
     }
 
+    @MappingLimit(count = 1, type = LimitType.IP)
     @GetMapping("/all")
     public Result<List<RuleVO>> all() {
         List<RuleBO> boList = remoteRuleService.list();

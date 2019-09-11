@@ -39,7 +39,7 @@ public class LimitAspect {
 
     private static ThreadLocal<Double> permitsPerSecond = new ThreadLocal<>();
 
-    private static volatile LoadingCache<String, RateLimiter> caches = CacheBuilder.newBuilder()
+    private static LoadingCache<String, RateLimiter> caches = CacheBuilder.newBuilder()
             .maximumSize(100000)
             .initialCapacity(1000)
             .expireAfterWrite(5, TimeUnit.MINUTES)
@@ -66,6 +66,8 @@ public class LimitAspect {
      * 3.由于这里没有控制该注解只能加在有 {@link RequestMapping} {@link org.springframework.web.bind.annotation.GetMapping}
      *   等注解上面的限制，所以这个注解同时可以加在一般的方法上甚至是私有方法上，大家可以做一个限制或者判断，有助于良好的
      *   开发习惯
+     *
+     * 注：对于1的建议，可以通过 method.getDeclaringClass().getName() 拿到该类的信息，再通过反射的方式来处理，如有必要，可以这么处理
      *
      * @param joinPoint
      * @return
