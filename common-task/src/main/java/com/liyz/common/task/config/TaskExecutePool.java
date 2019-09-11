@@ -17,11 +17,11 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @date 2019/9/11 11:07
  */
 @Slf4j
-@Configuration
-@EnableAsync
+//@Configuration
+//@EnableAsync
 public class TaskExecutePool {
 
-    @Bean
+//    @Bean
     public TaskExecutor initExecutorService() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         // 设置核心线程数
