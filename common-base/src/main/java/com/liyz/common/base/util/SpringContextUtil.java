@@ -35,6 +35,14 @@ public class SpringContextUtil implements ApplicationContextAware {
         return applicationContext.getBeanNamesForAnnotation(annotation);
     }
 
+    public static boolean containsBean(String beanName) {
+        return applicationContext.containsBean(beanName);
+    }
+
+    public static <T> Map<String, T> getBeansOfType(Class<T> clazz) {
+        return applicationContext.getBeansOfType(clazz);
+    }
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
