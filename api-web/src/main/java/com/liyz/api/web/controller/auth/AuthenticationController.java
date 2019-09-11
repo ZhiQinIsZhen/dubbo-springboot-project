@@ -6,6 +6,8 @@ import com.liyz.common.base.enums.CommonCodeEnum;
 import com.liyz.common.base.result.Result;
 import com.liyz.common.base.util.CommonConverterUtil;
 import com.liyz.common.controller.HttpRequestUtil;
+import com.liyz.common.controller.annotation.MappingLimit;
+import com.liyz.common.controller.constant.LimitType;
 import com.liyz.common.security.annotation.Anonymous;
 import com.liyz.common.security.util.JwtAuthenticationUtil;
 import com.liyz.common.security.util.JwtTokenAnalysisUtil;
@@ -66,6 +68,7 @@ public class AuthenticationController {
     @Reference(version = "${version}")
     RemoteUserInfoService remoteUserInfoService;
 
+    @MappingLimit(count = 0.1, type = LimitType.IP)
     @Anonymous
     @PostMapping("/login")
     public Result<LoginVO> login(@Validated({LoginDTO.Login.class}) @RequestBody

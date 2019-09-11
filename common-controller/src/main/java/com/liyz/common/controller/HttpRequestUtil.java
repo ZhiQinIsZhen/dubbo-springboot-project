@@ -2,18 +2,21 @@ package com.liyz.common.controller;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 注释: httprequest资源工具类
+ * 注释: httpRequest资源工具类
  *
  * @author liyangzhen
  * @version 1.0.0
  * @date 2019/9/7 18:50
  */
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class HttpRequestUtil {
 
@@ -24,18 +27,39 @@ public final class HttpRequestUtil {
      * @return
      */
     public static String getIpAddress(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
-
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("ProxyAop-Client-IP");
+        String ip = null;
+        try {
+            ip = request.getHeader("x-forwarded-for");
+            if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("ProxyAop-Client-IP");
+            }
+            if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("WL-ProxyAop-Client-IP");
+            }
+            if (StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("HTTP_CLIENT_IP");
+            }
+            if (StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+            }
+            if (StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getRemoteAddr();
+            }
+        } catch (Exception e) {
+            log.error("HttpRequestUtil.getIpAddress error", e);
         }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-ProxyAop-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
+        // 使用代理，则获取第一个IP地址
+        if (!StringUtils.isEmpty(ip) && ip.length() > 15) {
+            if (ip.indexOf(",") > 0) {
+                ip = ip.substring(0, ip.indexOf(","));
+            }
         }
         return ip;
+    }
+
+    public static String getIpAddress() {
+        HttpServletRequest request = getRequest();
+        return getIpAddress(request);
     }
 
     public static HttpServletRequest getRequest() {

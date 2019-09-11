@@ -9,6 +9,8 @@ import com.liyz.common.security.core.JwtUserDetails;
 import com.liyz.service.member.bo.UserInfoBO;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +31,7 @@ import java.util.stream.Collectors;
  * @version 1.0.0
  * @date 2019/9/7 17:37
  */
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JwtAuthenticationUtil {
 
@@ -62,32 +65,39 @@ public final class JwtAuthenticationUtil {
         List<String> list = new ArrayList<>();
         Map<String, Object> map = SpringContextUtil.getBeansWithAnnotation(RestController.class);
         for (Object bean : map.values()) {
-            Class beanClass = bean.getClass();
+            Class beanClass;
+            if (AopUtils.isAopProxy(bean)) {
+                beanClass = AopUtils.getTargetClass(bean);
+            } else {
+                beanClass = bean.getClass();
+            }
             if (beanClass.isAnnotationPresent(Anonymous.class)) {
                 if (beanClass.isAnnotationPresent(RequestMapping.class)) {
-                    String[] mappings = bean.getClass().getAnnotation(RequestMapping.class).value();
+                    RequestMapping requestMapping = (RequestMapping) beanClass.getAnnotation(RequestMapping.class);
+                    String[] mappings = requestMapping.value();
                     if (mappings != null && mappings.length > 0) {
                         list.add(mappings[0] + "/**");
                     } else {
-                        getAntPatternsByMethods(bean, list);
+                        getAntPatternsByMethods(beanClass, list);
                     }
                 }
             } else {
-                getAntPatternsByMethods(bean, list);
+                getAntPatternsByMethods(beanClass, list);
             }
         }
         return list;
     }
 
-    private static void getAntPatternsByMethods(Object bean, List<String> list) throws ClassNotFoundException {
+    private static void getAntPatternsByMethods(Class beanClass, List<String> list) throws ClassNotFoundException {
         String url = "";
-        if (bean.getClass().isAnnotationPresent(RequestMapping.class)) {
-            String[] mappings = bean.getClass().getAnnotation(RequestMapping.class).value();
+        if (beanClass.isAnnotationPresent(RequestMapping.class)) {
+            RequestMapping requestMapping = (RequestMapping) beanClass.getAnnotation(RequestMapping.class);
+            String[] mappings = requestMapping.value();
             if (mappings != null && mappings.length > 0) {
                 url = mappings[0];
             }
         }
-        Method[] methods = Class.forName(bean.getClass().getName()).getDeclaredMethods();
+        Method[] methods = beanClass.getDeclaredMethods();
         for (Method method : methods) {
             if (method.isAnnotationPresent(Anonymous.class)) {
                 String[] mappings = null;

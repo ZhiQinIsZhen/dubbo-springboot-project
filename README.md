@@ -40,6 +40,7 @@
 	* `增加一个swagger的依赖，大家可以通过 http://ip:port/doc.html`的url去访问我们api层面的接口文档，比swagger-ui.html界面更加美观（我是这么觉得的），需要大家自己在自己的api层继承该类：SwaggerBaseConfigurer
 	* `统一异常处理（ControllerExceptionHandleAdvice）：我只做了对controller层的统一处理，有需要可以自己添加修改`
 	* `springmvc的配置（WebMvcConfigurer），有兴趣的小伙伴可以自己看一看，主要是对springboot默认序列化的修改替换以及swagger的静态资源的访问权限`
+	* `增加限流功能（MappingLimit）：在方法上面加上注解即可，有兴趣的可以看看类 LimitAspect`
 	
 - common-security：顾名思义，springboot的安全配置，这里只讲几点，有兴趣的同学可以自己去研究下security，后续还有增加一个有访问权限的security，适用于管理后台的api
 	* `注解：Anonymous：加在方法或者类上，代表这个方法或者该类下所有的mapping方法可以免鉴权访问，否则所有的api必须登录后写到token来访问`
