@@ -13,12 +13,16 @@
         <module name="common-dao" />
         <module name="common-export" />
         <module name="common-security" />
+        <module name="common-task" />
         <module name="datasource-dao" />
         <module name="datasource-provider" />
         <module name="datasource-remote" />
         <module name="member-dao" />
         <module name="member-provider" />
         <module name="member-remote" />
+        <module name="task-dao" />
+        <module name="task-provider" />
+        <module name="task-remote" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -29,6 +33,7 @@
       <module name="common-export" target="1.8" />
       <module name="common-parent" target="1.8" />
       <module name="common-security" target="1.8" />
+      <module name="common-task" target="1.8" />
       <module name="datasource-dao" target="1.8" />
       <module name="datasource-provider" target="1.8" />
       <module name="datasource-remote" target="1.8" />
@@ -37,6 +42,10 @@
       <module name="member-remote" target="1.8" />
       <module name="service-datasource" target="1.8" />
       <module name="service-member" target="1.8" />
+      <module name="service-task" target="1.6" />
+      <module name="task-dao" target="1.8" />
+      <module name="task-provider" target="1.6" />
+      <module name="task-remote" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
