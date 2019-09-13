@@ -14,8 +14,16 @@ public enum LimitType {
      */
     IP,
     /**
-     * 总的次数
+     * 全局总的次数
      */
     TOTAL,
+    /**
+     * api mapping级
+     */
+    MAPPING,
+    /**
+     * 自定义
+     */
+    CUSTOMIZE,
     ;
 }

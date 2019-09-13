@@ -101,7 +101,9 @@ public final class JwtAuthenticationUtil {
         for (Method method : methods) {
             if (method.isAnnotationPresent(Anonymous.class)) {
                 String[] mappings = null;
-                if (method.isAnnotationPresent(GetMapping.class)) {
+                if (method.isAnnotationPresent(RequestMapping.class)) {
+                    mappings = method.getAnnotation(RequestMapping.class).value();
+                } else if (method.isAnnotationPresent(GetMapping.class)) {
                     mappings = method.getAnnotation(GetMapping.class).value();
                 } else if (method.isAnnotationPresent(PutMapping.class)) {
                     mappings = method.getAnnotation(PutMapping.class).value();

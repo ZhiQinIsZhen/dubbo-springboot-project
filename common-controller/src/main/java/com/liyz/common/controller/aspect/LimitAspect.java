@@ -7,7 +7,8 @@ import com.google.common.util.concurrent.RateLimiter;
 import com.liyz.common.base.enums.CommonCodeEnum;
 import com.liyz.common.base.exception.RemoteServiceException;
 import com.liyz.common.controller.HttpRequestUtil;
-import com.liyz.common.controller.annotation.MappingLimit;
+import com.liyz.common.controller.annotation.Limit;
+import com.liyz.common.controller.annotation.Limits;
 import com.liyz.common.controller.constant.LimitType;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -15,12 +16,15 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -50,15 +54,18 @@ public class LimitAspect {
                 }
             });
 
+    @Value("${spring.limit.total.count}")
+    private double totalCount;
+
     /**
      * 切点
      */
-    @Pointcut("@annotation(com.liyz.common.controller.annotation.MappingLimit)")
+    @Pointcut("@annotation(com.liyz.common.controller.annotation.Limits)")
     public void aspect() {}
 
     /**
      * 这里可以有几个方式的优化，可以根据一些情况
-     * 1.由于我们的{@link MappingLimit} key有默认值，如果大家都不填写，可能这个有默认值的key的限流则会变为该应用的总并发限流，
+     * 1.由于我们的{@link Limits} key有默认值，如果大家都不填写，可能这个有默认值的key的限流则会变为该应用的总并发限流，
      *   可以修改其默认限流的获取key的方式，可用通过 class 上的mapping值+ method上的mapping值，但是则全局限流就要重新做
      * 2.由于我这边限流的统计缓存全部放在内存中的，虽然有5分钟的失效时间，但是在高并发的场景下，建议大家不要用ip级的限流
      *   ，如果确实想做，可以单独起一个限流服务，专门放这些数据，同时也可以用这些数据做一些统计，可以统计出哪个客户没有通过
@@ -77,28 +84,78 @@ public class LimitAspect {
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        MappingLimit limit = method.getAnnotation(MappingLimit.class);
+        Limits limits = method.getAnnotation(Limits.class);
         boolean isMapping = method.isAnnotationPresent(RequestMapping.class) || method.isAnnotationPresent(GetMapping.class)
                 || method.isAnnotationPresent(PostMapping.class) || method.isAnnotationPresent(PutMapping.class)
                 || method.isAnnotationPresent(DeleteMapping.class);
-        String key = limit.key();
-        LimitType type = limit.type();
-        double count = limit.count();
-        if (count > 0 && isMapping) {
-            Boolean flag = Boolean.TRUE;
-            try {
-                if (LimitType.IP == type) {
-                    key = HttpRequestUtil.getIpAddress();
+        Limit[] limitArray = limits.value();
+        Boolean flag = Boolean.TRUE;
+        if (isMapping && limitArray != null && limitArray.length > 0) {
+            Set<LimitType> set = new HashSet<>();
+            String key = null;
+            double count = 0.0;
+            for (Limit limit : limitArray) {
+                if (set.contains(limit.type()) && (LimitType.TOTAL == limit.type() || limit.count() > 0)) {
+                    continue;
                 }
-                permitsPerSecond.set(count);
-                RateLimiter rateLimiter = caches.getUnchecked(key);
-                flag = rateLimiter.tryAcquire();
-            } catch (Exception e) {
-                log.error("限流出错了,key:{}", key, e);
-            }
-            if (!flag) {
-                log.error("key:{} --> 触发了限流，每秒只能允许 {} 次访问", key, count);
-                throw new RemoteServiceException(CommonCodeEnum.LimitCount);
+                count = limit.count();
+                switch (limit.type()) {
+                    case IP:
+                        key = HttpRequestUtil.getIpAddress();
+                        break;
+                    case TOTAL:
+                        key = "total";
+                        count = totalCount;
+                        break;
+                    case MAPPING:
+                        Class clazz = method.getDeclaringClass();
+                        String[] values = null;
+                        if (clazz.isAnnotationPresent(RequestMapping.class)) {
+                            values = ((RequestMapping) clazz.getAnnotation(RequestMapping.class)).value();
+                            if (values != null && values.length > 0) {
+                                key = values[0];
+                            } else {
+                                key = "";
+                            }
+                        }
+                        if (method.isAnnotationPresent(RequestMapping.class)) {
+                            values = method.getAnnotation(RequestMapping.class).value();
+                        } else if (method.isAnnotationPresent(GetMapping.class)) {
+                            values = method.getAnnotation(GetMapping.class).value();
+                        } else if (method.isAnnotationPresent(PutMapping.class)) {
+                            values = method.getAnnotation(PutMapping.class).value();
+                        } else if (method.isAnnotationPresent(PostMapping.class)) {
+                            values = method.getAnnotation(PostMapping.class).value();
+                        } else if (method.isAnnotationPresent(DeleteMapping.class)) {
+                            values = method.getAnnotation(DeleteMapping.class).value();
+                        }
+                        if (values != null && values.length > 0) {
+                            String mapping = values[0];
+                            if (mapping.contains("{")) {
+                                mapping.substring(0, mapping.indexOf("{"));
+                            }
+                            key = key + mapping;
+                        }
+                        break;
+                    case CUSTOMIZE:
+                        key = limit.key();
+                        break;
+                    default:
+                        break;
+                }
+                if (count > 0) {
+                    try {
+                        permitsPerSecond.set(count);
+                        RateLimiter rateLimiter = caches.getUnchecked(key);
+                        flag = rateLimiter.tryAcquire();
+                    } catch (Exception e) {
+                        log.error("限流出错了,key:{}", key, e);
+                    }
+                    if (!flag) {
+                        log.error("key:{} --> 触发了限流，每秒只能允许 {} 次访问", key, count);
+                        throw new RemoteServiceException(CommonCodeEnum.LimitCount);
+                    }
+                }
             }
         }
         return joinPoint.proceed();
