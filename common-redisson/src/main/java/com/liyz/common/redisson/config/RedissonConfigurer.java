@@ -1,4 +1,4 @@
-package com.liyz.service.member.config;
+package com.liyz.common.redisson.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -9,17 +9,15 @@ import org.redisson.config.SentinelServersConfig;
 import org.redisson.config.SingleServerConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
- * 注释:redisson配置
+ * 注释:
  *
  * @author liyangzhen
  * @version 1.0.0
- * @date 2019/7/22 9:48
+ * @date 2019/9/16 14:53
  */
 @Slf4j
-@Configuration
 public class RedissonConfigurer {
 
     @Value("${spring.redisson.url}")

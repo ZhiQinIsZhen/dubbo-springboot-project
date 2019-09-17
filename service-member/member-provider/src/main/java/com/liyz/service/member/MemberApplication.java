@@ -1,5 +1,6 @@
 package com.liyz.service.member;
 
+import com.liyz.common.redisson.annotation.EnableRedisson;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @version 1.0.0
  * @date 2019/9/7 14:57
  */
+@EnableRedisson
 @EnableScheduling
 @MapperScan(basePackages = {"com.liyz.service.member.dao"})
 @EnableDubbo(scanBasePackages = {"com.liyz.service.member.provider"})

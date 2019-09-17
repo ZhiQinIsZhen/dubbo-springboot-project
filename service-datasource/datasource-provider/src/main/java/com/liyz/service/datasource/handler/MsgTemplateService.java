@@ -2,6 +2,7 @@ package com.liyz.service.datasource.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.liyz.common.dao.service.AbstractService;
+import com.liyz.common.redisson.service.RedissonService;
 import com.liyz.service.datasource.constant.DatasourceConstant;
 import com.liyz.service.datasource.dao.MsgTemplateMapper;
 import com.liyz.service.datasource.model.MsgTemplateDO;
@@ -23,7 +24,7 @@ public class MsgTemplateService extends AbstractService<MsgTemplateDO> {
 
     @Autowired
     MsgTemplateMapper msgTemplateMapper;
-    @Autowired
+    @Autowired(required = false)
     RedissonService redissonService;
 
     public MsgTemplateDO getByCodeType(@NotNull Integer code, @NotNull Integer type) {

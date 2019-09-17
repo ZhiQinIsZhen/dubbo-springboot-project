@@ -19,6 +19,7 @@
 
     <properties>
         <dubbo.version>2.7.3</dubbo.version>
+        <curator.version>4.2.0</curator.version>
         <java.version>1.8</java.version>
         <file.encoding>UTF-8</file.encoding>
 
@@ -33,10 +34,8 @@
         <cglib.version>3.3.0</cglib.version>
         <mybatis.version>2.1.0</mybatis.version>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
-        <redisson.version>3.11.1</redisson.version>
         <HikariCP.version>3.3.1</HikariCP.version>
         <mysql.version>8.0.17</mysql.version>
-
         <member.remote.version>1.0.0-SNAPSHOT</member.remote.version>
         <datasource.remote.version>1.0.0-SNAPSHOT</datasource.remote.version>
     </properties>
@@ -47,25 +46,25 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons.lang3.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.ctrip.framework.apollo</groupId>
                 <artifactId>apollo-client</artifactId>
@@ -79,10 +78,14 @@
                 <version>${dubbo.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-dependencies-zookeeper</artifactId>
-                <version>${dubbo.version}</version>
-                <type>pom</type>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
             </dependency>
 
             <!-- pagehelper -->
@@ -112,11 +115,6 @@
                 <version>${cglib.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson</artifactId>
-                <version>${redisson.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>

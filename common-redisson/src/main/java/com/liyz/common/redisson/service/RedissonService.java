@@ -1,12 +1,14 @@
-package com.liyz.service.datasource.handler;
+package com.liyz.common.redisson.service;
 
-import com.liyz.service.datasource.constant.DatasourceConstant;
+import com.liyz.common.redisson.constant.RedissonConstant;
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RList;
 import org.redisson.api.RSet;
 import org.redisson.api.RedissonClient;
 import org.redisson.client.codec.Codec;
 import org.redisson.client.codec.StringCodec;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,10 +21,12 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0.0
  * @date 2019/7/22 10:47
  */
+@Slf4j
+@ConditionalOnClass({RedissonClient.class})
 @Service
 public class RedissonService {
 
-    @Autowired
+    @Autowired(required = false)
     RedissonClient redissonClient;
 
     private static final Codec STRING_CODE = new StringCodec();
@@ -73,7 +77,7 @@ public class RedissonService {
     }
 
     public <T> void setValueExpire(String key, T value) {
-        setValueExpire(key, value, DatasourceConstant.DEFAULT_EXPIRE_TIME_DAY, TimeUnit.DAYS);
+        setValueExpire(key, value, RedissonConstant.DEFAULT_EXPIRE_TIME_DAY, TimeUnit.DAYS);
     }
 
     public <T> void setValueExpire(String key, T value, long time, TimeUnit unit) {
@@ -89,7 +93,7 @@ public class RedissonService {
     }
 
     public boolean expire(String key) {
-        return expire(key, DatasourceConstant.DEFAULT_EXPIRE_TIME_DAY, TimeUnit.DAYS);
+        return expire(key, RedissonConstant.DEFAULT_EXPIRE_TIME_DAY, TimeUnit.DAYS);
     }
 
     public boolean expire(String key, long time, TimeUnit unit) {

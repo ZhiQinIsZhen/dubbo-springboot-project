@@ -37,7 +37,6 @@ public class RemoteUserInfoServiceImpl implements RemoteUserInfoService {
 
     @Override
     public UserInfoBO getByUserId(Long userId) {
-
         UserInfoDO userInfoDO = userInfoService.getById(userId);
         if (Objects.isNull(userInfoDO)) {
             throw new RemoteMemberServiceException(CommonCodeEnum.NoData);
