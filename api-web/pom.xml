@@ -34,5 +34,9 @@
             <groupId>com.liyz.service</groupId>
             <artifactId>datasource-remote</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.liyz.service</groupId>
+            <artifactId>third-remote</artifactId>
+        </dependency>
     </dependencies>
 </project>

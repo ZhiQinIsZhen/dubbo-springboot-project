@@ -3,6 +3,7 @@ package com.liyz.common.base.result;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.github.pagehelper.PageInfo;
 import com.liyz.common.base.enums.CommonCodeEnum;
+import com.liyz.common.base.enums.ServiceCodeEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -49,6 +50,10 @@ public class PageResult<T> implements Serializable {
 
     public static <T> PageResult<T> error(String code, String message) {
         return new PageResult<T>(code, message);
+    }
+
+    public static <T> PageResult<T> error(ServiceCodeEnum codeEnum) {
+        return new PageResult<T>(codeEnum.getCode(), codeEnum.getMessage());
     }
 
     public PageResult(PageInfo<T> data) {

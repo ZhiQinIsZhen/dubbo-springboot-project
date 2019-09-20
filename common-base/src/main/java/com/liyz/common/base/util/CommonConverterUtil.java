@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -78,5 +79,24 @@ public final class CommonConverterUtil {
             map.put(field.getName(), field.get(obj));
         }
         return map;
+    }
+
+    public static <T> T MapToBean(Map<String, Object> map, Class<T> targetClass) throws Exception {
+        if (map == null) {
+            return null;
+        }
+        Field[] declaredFields = targetClass.getDeclaredFields();
+        T target = BeanUtils.instantiateClass(targetClass);
+        String fieldName;
+        Method method;
+        for (Field field : declaredFields) {
+            fieldName = field.getName();
+            if (map.containsKey(fieldName) && map.get(fieldName) != null) {
+                fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+                method = targetClass.getMethod("set" + fieldName, field.getType());
+                method.invoke(target,  map.get(field.getName()));
+            }
+        }
+        return target;
     }
 }

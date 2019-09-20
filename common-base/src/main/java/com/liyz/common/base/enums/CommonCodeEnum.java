@@ -20,7 +20,8 @@ public enum  CommonCodeEnum implements ServiceCodeEnum {
     NonTable("10007", "该表不存在"),
     NonDatasource("10008", "该库不存在"),
     ParameterError("10009", "参数异常"),
-    LimitCount("10010", "超出最大访问限制");
+    LimitCount("10010", "超出最大访问限制"),
+    ThirdServiceError("10011", "调用第三方服务异常"),
     ;
 
     private String code;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyz.service.third.dao.ThirdDataMapper">
+
+    <insert id="replaceList" parameterType="com.liyz.service.third.model.ThirdDataDO">
+        replace into third_data
+        (no, third_type, name, mobile, value, data_type)
+        VALUES
+        <foreach collection="list" item="it" separator=",">
+            (#{it.no}, #{it.thirdType}, #{it.name}, #{it.mobile}, #{it.value}, #{it.dataType})
+        </foreach>
+    </insert>
+
+</mapper>
