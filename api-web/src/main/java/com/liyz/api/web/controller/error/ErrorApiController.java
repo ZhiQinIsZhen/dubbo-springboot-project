@@ -48,4 +48,5 @@ public class ErrorApiController implements ErrorController {
         String msg = Objects.isNull(status) ? CommonCodeEnum.UnckowException.getMessage() : status.getReasonPhrase();
         return Result.error(String.valueOf(statusCode), msg);
     }
+
 }
