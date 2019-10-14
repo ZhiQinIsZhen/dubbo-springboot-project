@@ -27,21 +27,9 @@ public class PageResult<T> implements Serializable {
     private String message;
 
     @JSONField(ordinal = 3)
-    private Long total;
+    private Paging paging;
 
     @JSONField(ordinal = 4)
-    private Integer pages;
-
-    @JSONField(ordinal = 5)
-    private Integer pageNum;
-
-    @JSONField(ordinal = 6)
-    private Integer pageSize;
-
-    @JSONField(ordinal = 7)
-    private Boolean hasNextPage;
-
-    @JSONField(ordinal = 8)
     private List<T> data;
 
     public static <T> PageResult<T> success(PageInfo<T> data) {
@@ -58,11 +46,14 @@ public class PageResult<T> implements Serializable {
 
     public PageResult(PageInfo<T> data) {
         this.setData(data.getList());
-        this.total = data.getTotal();
-        this.pages = data.getPages();
-        this.hasNextPage = data.isHasNextPage();
-        this.pageNum = data.getPageNum();
-        this.pageSize = data.getPageSize();
+        Paging paging = Paging.builder()
+                .total(data.getTotal())
+                .pages(data.getPages())
+                .hasNextPage(data.isHasNextPage())
+                .pageNum(data.getPageNum())
+                .pageSize(data.getPageSize())
+                .build();
+        this.paging = paging;
         this.code = CommonCodeEnum.success.getCode();
         this.message = CommonCodeEnum.success.getMessage();
     }
@@ -70,11 +61,13 @@ public class PageResult<T> implements Serializable {
     public PageResult(String code, String message) {
         this.code = code;
         this.message = message;
-        this.total = 0L;
-        this.pages = 0;
-        this.pageNum = 0;
-        this.pageSize = 0;
-        this.hasNextPage = false;
-
+        Paging paging = Paging.builder()
+                .total(0L)
+                .pages(0)
+                .hasNextPage(false)
+                .pageNum(0)
+                .pageSize(0)
+                .build();
+        this.paging = paging;
     }
 }

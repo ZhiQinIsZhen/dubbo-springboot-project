@@ -26,4 +26,23 @@ public class BootStrap implements Runnable {
         client.start();
     }
 
+    public static void main(String[] args) {
+        Object lock = new Object();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    lock.wait();
+                    synchronized (lock) {
+
+                    }
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+    }
+
 }

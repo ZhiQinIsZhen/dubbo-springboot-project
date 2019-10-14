@@ -49,7 +49,8 @@ public class RemoteUserInfoServiceImpl implements RemoteUserInfoService {
         PageHelper.startPage(page, size);
         List<UserInfoDO> doList = userInfoService.listAll();
         PageInfo<UserInfoDO> doPageInfo = new PageInfo<>(doList);
-        return CommonConverterUtil.PageConverter(doPageInfo, UserInfoBO.class);
+        PageInfo<UserInfoBO> boPageInfo = CommonConverterUtil.PageConverter(doPageInfo, UserInfoBO.class);
+        return boPageInfo;
     }
 
     @Override

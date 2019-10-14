@@ -1,5 +1,6 @@
 package com.liyz.api.web.controller.business;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.liyz.api.web.dto.page.PageBaseDTO;
 import com.liyz.api.web.vo.UserInfoVO;
@@ -66,8 +67,9 @@ public class UserInfoController {
         if (Objects.isNull(pageBaseDTO)) {
             pageBaseDTO = new PageBaseDTO();
         }
-        PageInfo<UserInfoBO> pageInfo = remoteUserInfoService.pageList(pageBaseDTO.getPageNum(), pageBaseDTO.getPageSize());
-        PageInfo<UserInfoVO> voPageInfo = CommonConverterUtil.PageConverter(pageInfo, UserInfoVO.class);
+        PageInfo<UserInfoBO> boPageInfo = remoteUserInfoService.pageList(pageBaseDTO.getPageNum(), pageBaseDTO.getPageSize());
+        log.info("boPageInfo :{}", ((Page)boPageInfo.getList()).getPageSize());
+        PageInfo<UserInfoVO> voPageInfo = CommonConverterUtil.PageConverter(boPageInfo, UserInfoVO.class);
         return PageResult.success(voPageInfo);
     }
 }

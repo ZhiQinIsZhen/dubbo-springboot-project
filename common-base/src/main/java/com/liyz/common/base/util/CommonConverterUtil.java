@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.Field;
@@ -20,6 +21,7 @@ import java.util.Map;
  * @version 1.0.0
  * @date 2019/8/28 16:38
  */
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class CommonConverterUtil {
 
@@ -54,7 +56,9 @@ public final class CommonConverterUtil {
         if (sourcePage == null) {
             return null;
         }
-        return new PageInfo<>(ListConverter(sourcePage.getList(), targetClass));
+        PageInfo<Y> targetPage = beanConverter(sourcePage, PageInfo.class);
+        targetPage.setList(ListConverter(sourcePage.getList(), targetClass));
+        return targetPage;
     }
 
     public static <T,Y> Y beanConverter(T source, Class<Y> targetClass) {
