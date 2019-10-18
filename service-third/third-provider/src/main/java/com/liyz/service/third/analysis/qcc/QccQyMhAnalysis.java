@@ -3,7 +3,7 @@ package com.liyz.service.third.analysis.qcc;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.liyz.service.third.bo.PageBO;
+import com.liyz.service.third.analysis.bo.PageBO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -50,8 +50,8 @@ public class QccQyMhAnalysis extends AbstractQccAnalysis {
     }
 
     @Override
-    protected Map<String, Map<String, Object>> doEsData(List<JSONObject> list) {
-        Map<String, Map<String, Object>> esDatas = new HashMap<>();
+    protected Map<String, Pair<Map<String, Object>, JSONObject>> doEsData(List<JSONObject> list) {
+        Map<String, Pair<Map<String, Object>, JSONObject>> esDatas = new HashMap<>();
         for (JSONObject object : list) {
             Map<String, Object> esData = new HashMap<>();
             //公司名称
@@ -65,7 +65,7 @@ public class QccQyMhAnalysis extends AbstractQccAnalysis {
             }
             esData.put("CreditCode", creditCode);
             esData.put("updateTime", "");
-            esDatas.put(creditCode, esData);
+            esDatas.put(creditCode, Pair.of(esData, object));
         }
         return esDatas;
     }

@@ -1,9 +1,8 @@
 package com.liyz.service.third.remote;
 
 import com.github.pagehelper.PageInfo;
+import com.liyz.service.third.bo.ThirdDataPageBO;
 import com.liyz.service.third.constant.ThirdType;
-
-import java.util.Map;
 
 /**
  * 注释:
@@ -14,7 +13,7 @@ import java.util.Map;
  */
 public interface RemoteThirdDataService {
 
-    Object query(Map<String, Object> map, ThirdType thirdType);
+    Object query(ThirdDataPageBO thirdDataPageBO, ThirdType thirdType);
 
-    PageInfo<Object> queryPage(Map<String, Object> map, ThirdType thirdType, int pageNo);
+    PageInfo<Object> queryPage(ThirdDataPageBO thirdDataPageBO, ThirdType thirdType);
 }

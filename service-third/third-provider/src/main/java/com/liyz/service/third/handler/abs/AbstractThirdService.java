@@ -10,7 +10,7 @@ import com.liyz.common.base.util.CommonConverterUtil;
 import com.liyz.common.base.util.SpringContextUtil;
 import com.liyz.service.third.analysis.AnalysisFactoryUtil;
 import com.liyz.service.third.analysis.IAnalysis;
-import com.liyz.service.third.bo.PageBO;
+import com.liyz.service.third.analysis.bo.PageBO;
 import com.liyz.service.third.config.AsynThreadPoolConfig;
 import com.liyz.service.third.config.ElasticSearchConfig;
 import com.liyz.service.third.config.ThirdServiceUrlConfig;
@@ -32,10 +32,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -59,6 +56,12 @@ public abstract class AbstractThirdService implements ThirdService {
     private ThreadLocal<Pair<Integer, Integer>> pageNoSize = new ThreadLocal<>();
     @Setter
     private boolean loadDataSource = true;
+    @Setter
+    private boolean saveEs = true;
+    @Setter
+    private boolean saveDataSource = true;
+    @Setter
+    private boolean reAnalysis = false;
 
     public AbstractThirdService() {
         thirdDataMapper = SpringContextUtil.getBean("thirdDataMapper", ThirdDataMapper.class);
@@ -100,13 +103,19 @@ public abstract class AbstractThirdService implements ThirdService {
         String queryStr = doQuery(heads, params, body, method == null ? HttpMethod.POST : method, thirdServiceUrl);
         //解析数据
         Pair<List<JSONObject>, PageBO> pair = analysisResult(queryStr, thirdType);
+        if (pair == null) {
+            return null;
+        }
         List<JSONObject> resultList = pair.getLeft();
-        if (!CollectionUtils.isEmpty(resultList)) {
+        if (CollectionUtils.isEmpty(resultList)) {
             return null;
         }
         //保存es，数据库（可以做成异步）
-        saveEsData(resultList, thirdType);
-        saveDataSource(resultList, thirdType);
+        if (reAnalysis) {
+            saveData(queryStr, thirdType);
+        } else {
+            saveData(resultList, thirdType);
+        }
         return resultList.get(0);
     }
 
@@ -146,12 +155,19 @@ public abstract class AbstractThirdService implements ThirdService {
         String queryStr = doQuery(heads, params, body, method == null ? HttpMethod.POST : method, thirdServiceUrl);
         //解析数据
         Pair<List<JSONObject>, PageBO> pair = analysisResult(queryStr, thirdType);
+        if (pair == null) {
+            return null;
+        }
         List<JSONObject> resultList = pair.getLeft();
         if (CollectionUtils.isEmpty(resultList)) {
             return null;
         }
         //保存es，数据库（可以做成异步）
-        saveData(resultList, thirdType);
+        if (reAnalysis) {
+            saveData(queryStr, thirdType);
+        } else {
+            saveData(resultList, thirdType);
+        }
         //设置分页属性
         Object[] objects = resultList.toArray();
         PageInfo<Object> doPageInfo = new PageInfo<>(Lists.newArrayList(objects));
@@ -225,21 +241,25 @@ public abstract class AbstractThirdService implements ThirdService {
     protected void saveDataSource(List<JSONObject> objectList, ThirdType thirdType) {
         if (!CollectionUtils.isEmpty(objectList)) {
             IAnalysis analysis = AnalysisFactoryUtil.getAnalysisResult(thirdType);
-            Map<String, Map<String, Object>> mapMap = analysis.esData(objectList);
+            Map<String, Pair<Map<String, Object>, JSONObject>> mapMap = analysis.esData(objectList);
             List<ThirdDataDO> doList = new ArrayList<>(objectList.size());
             ThirdDataDO thirdDataDO;
             if (!CollectionUtils.isEmpty(mapMap)) {
-                for (Map.Entry<String, Map<String, Object>> entry : mapMap.entrySet()) {
+                for (Map.Entry<String, Pair<Map<String, Object>, JSONObject>> entry : mapMap.entrySet()) {
                     thirdDataDO = new ThirdDataDO();
                     thirdDataDO.setNo(entry.getKey());
-                    thirdDataDO.setValue(JSON.toJSONString(entry.getValue()));
+                    thirdDataDO.setValue(entry.getValue().getRight().toJSONString());
                     thirdDataDO.setThirdType(String.valueOf(thirdType.getCode()));
                     thirdDataDO.setDataType(thirdType.getCode()/1000%10);
                     doList.add(thirdDataDO);
                 }
             }
-            thirdDataMapper.replaceList(doList);
+            replaceMapper(doList);
         }
+    }
+
+    protected void replaceMapper(List<ThirdDataDO> doList) {
+        thirdDataMapper.replaceList(doList);
     }
 
     /**
@@ -281,13 +301,15 @@ public abstract class AbstractThirdService implements ThirdService {
         heads = setRequestHeads(heads);
         params = setRequestParams(params);
         body = setRequestBody(body);
-        MultiValueMap requestHeaders;
+        MultiValueMap requestHeaders = null;
         URI uri = new URI(thirdServiceUrl);
-        if (heads instanceof MultiValueMap) {
-            requestHeaders = (MultiValueMap) heads;
-        } else {
-            requestHeaders = new HttpHeaders();
-            requestHeaders.setAll(heads);
+        if (!CollectionUtils.isEmpty(heads)) {
+            if (heads instanceof MultiValueMap) {
+                requestHeaders = (MultiValueMap) heads;
+            } else {
+                requestHeaders = new HttpHeaders();
+                requestHeaders.setAll(heads);
+            }
         }
         if (!CollectionUtils.isEmpty(params)) {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(thirdServiceUrl);
@@ -304,7 +326,7 @@ public abstract class AbstractThirdService implements ThirdService {
         String result = null;
         if (HttpStatus.OK == response.getStatusCode()) {
             result = response.getBody();
-            log.info("请求第三方接口返回结果:{}", result);
+            log.info("请求第三方接口返回结果-->{}", result);
         }
         return result;
     }
@@ -344,6 +366,9 @@ public abstract class AbstractThirdService implements ThirdService {
      * @return
      */
     protected Pair<List<JSONObject>, PageBO> analysisResult(String queryStr, ThirdType thirdType) {
+        if (StringUtils.isBlank(queryStr)) {
+            return null;
+        }
         IAnalysis analysis = AnalysisFactoryUtil.getAnalysisResult(thirdType);
         return analysis.analysis(queryStr);
     }
@@ -356,11 +381,15 @@ public abstract class AbstractThirdService implements ThirdService {
     protected void saveEsData(List<JSONObject> resultList, ThirdType thirdType) {
         if (StringUtils.isNotBlank(thirdType.getEsIndex())) {
             IAnalysis analysis = AnalysisFactoryUtil.getAnalysisResult(thirdType);
-            Map<String, Map<String, Object>> mapMap = analysis.esData(resultList);
+            Map<String, Pair<Map<String, Object>, JSONObject>> mapMap = analysis.esData(resultList);
             if (CollectionUtils.isEmpty(mapMap)) {
                 return;
             }
-            ElasticSearchConfig.saveEsDataWithBulk(mapMap, thirdType.getEsIndex());
+            Map<String,Map<String, Object>> esBulkData = new HashMap<>(mapMap.size());
+            for (Map.Entry<String, Pair<Map<String, Object>, JSONObject>> entry : mapMap.entrySet()) {
+                esBulkData.put(entry.getKey(), entry.getValue().getLeft());
+            }
+            ElasticSearchConfig.saveEsDataWithBulk(esBulkData, thirdType.getEsIndex());
         }
     }
 
@@ -371,26 +400,63 @@ public abstract class AbstractThirdService implements ThirdService {
      * @param thirdType
      */
     private void saveData(List<JSONObject> resultList, ThirdType thirdType) {
-        AsynThreadPoolConfig.getInstance().execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    saveEsData(resultList, thirdType);
-                } catch (Exception e) {
-                    log.error("save third data to es error", e);
-                }
+        if (saveEs) {
+            AsynThreadPoolConfig.getInstance().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        saveEsData(resultList, thirdType);
+                    } catch (Exception e) {
+                        log.error("save third data to es error", e);
+                    }
 
-            }
-        });
-        AsynThreadPoolConfig.getInstance().execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    saveDataSource(resultList, thirdType);
-                } catch (Exception e) {
-                    log.error("save third data to datasource error", e);
                 }
+            });
+        }
+        if (saveDataSource) {
+            AsynThreadPoolConfig.getInstance().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        saveDataSource(resultList, thirdType);
+                    } catch (Exception e) {
+                        log.error("save third data to datasource error", e);
+                    }
+                }
+            });
+        }
+    }
+
+    private void saveData(String queryStr, ThirdType thirdType) {
+        IAnalysis analysis = AnalysisFactoryUtil.getAnalysisResult(thirdType);
+        Pair<List<JSONObject>, PageBO> pair = analysis.analysis(queryStr);
+        if (pair != null && !CollectionUtils.isEmpty(pair.getLeft())) {
+            if (saveEs) {
+                AsynThreadPoolConfig.getInstance().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            saveEsData(pair.getLeft(), thirdType);
+                        } catch (Exception e) {
+                            log.error("save third data to es error", e);
+                        }
+
+                    }
+                });
             }
-        });
+            if (saveDataSource) {
+                AsynThreadPoolConfig.getInstance().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            saveDataSource(pair.getLeft(), thirdType);
+                        } catch (Exception e) {
+                            log.error("save third data to datasource error", e);
+                        }
+                    }
+                });
+            }
+        }
+
     }
 }

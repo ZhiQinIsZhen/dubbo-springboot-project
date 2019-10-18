@@ -1,10 +1,9 @@
-package com.liyz.service.third.analysis.qcc;
+package com.liyz.service.third.analysis.td;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.liyz.service.third.analysis.IAnalysis;
 import com.liyz.service.third.analysis.bo.PageBO;
-import com.liyz.service.third.constant.ThirdConstant;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.util.CollectionUtils;
 
@@ -16,15 +15,15 @@ import java.util.Map;
  *
  * @author liyangzhen
  * @version 1.0.0
- * @date 2019/9/19 14:13
+ * @date 2019/10/17 15:30
  */
-public abstract class AbstractQccAnalysis implements IAnalysis {
+public abstract class AbstractTdAnalysis implements IAnalysis {
 
     @Override
     public Pair<List<JSONObject>, PageBO> analysis(String value) {
-        String code = JSON.parseObject(value).getString("Status");
+        boolean success = JSON.parseObject(value).getBooleanValue("success");
         Pair<List<JSONObject>, PageBO> pair = null;
-        if (ThirdConstant.QCC_QUERY_SUCCESS.equals(code)) {
+        if (success) {
             pair = doAnalysis(value);
         }
         return pair;

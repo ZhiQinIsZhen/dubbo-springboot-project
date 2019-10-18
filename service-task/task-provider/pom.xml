@@ -40,6 +40,10 @@
                     <artifactId>curator-framework</artifactId>
                     <groupId>org.apache.curator</groupId>
                 </exclusion>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>

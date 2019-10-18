@@ -1,7 +1,7 @@
 package com.liyz.service.third.analysis;
 
 import com.alibaba.fastjson.JSONObject;
-import com.liyz.service.third.bo.PageBO;
+import com.liyz.service.third.analysis.bo.PageBO;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -18,5 +18,5 @@ public interface IAnalysis {
 
     Pair<List<JSONObject>, PageBO> analysis(String value);
 
-    Map<String, Map<String, Object>> esData(List<JSONObject> list);
+    Map<String, Pair<Map<String, Object>, JSONObject>> esData(List<JSONObject> list);
 }

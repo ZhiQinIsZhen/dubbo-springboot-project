@@ -23,6 +23,11 @@ public class QccThirdServiceHandler extends AbstractThirdService {
         setLoadDataSource(false);
     }
 
+    public QccThirdServiceHandler(boolean saveEs) {
+        this();
+        setSaveEs(saveEs);
+    }
+
     @Override
     protected void addPageInfoToParams(Map<String, Object> params, int pageNo, int pageSize) {
         params.put("pageIndex", String.valueOf(getPageNoSize().get().getLeft()));

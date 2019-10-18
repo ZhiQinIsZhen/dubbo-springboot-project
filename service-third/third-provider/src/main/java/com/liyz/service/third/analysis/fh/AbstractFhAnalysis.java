@@ -1,4 +1,4 @@
-package com.liyz.service.third.analysis.qcc;
+package com.liyz.service.third.analysis.fh;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -16,15 +16,15 @@ import java.util.Map;
  *
  * @author liyangzhen
  * @version 1.0.0
- * @date 2019/9/19 14:13
+ * @date 2019/10/15 14:24
  */
-public abstract class AbstractQccAnalysis implements IAnalysis {
+public abstract class AbstractFhAnalysis implements IAnalysis {
 
     @Override
     public Pair<List<JSONObject>, PageBO> analysis(String value) {
-        String code = JSON.parseObject(value).getString("Status");
+        String code = JSON.parseObject(value).getString("code");
         Pair<List<JSONObject>, PageBO> pair = null;
-        if (ThirdConstant.QCC_QUERY_SUCCESS.equals(code)) {
+        if (ThirdConstant.HF_QUERY_SUCCESS.equals(code)) {
             pair = doAnalysis(value);
         }
         return pair;
