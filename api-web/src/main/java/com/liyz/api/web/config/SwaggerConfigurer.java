@@ -55,4 +55,15 @@ public class SwaggerConfigurer extends SwaggerBaseConfigurer {
                 .paths(PathSelectors.any())
                 .build().groupName("错误-API");
     }
+
+    @Bean
+    public Docket createFileApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .protocols(Sets.newHashSet("https", "http"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.liyz.api.web.controller.file"))
+                .paths(PathSelectors.any())
+                .build().groupName("文件服务-API");
+    }
 }

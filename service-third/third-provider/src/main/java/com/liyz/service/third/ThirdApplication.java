@@ -22,7 +22,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 public class ThirdApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(ThirdApplication.class);
-        application.run(args);
+        SpringApplication.run(ThirdApplication.class, args);
     }
 }

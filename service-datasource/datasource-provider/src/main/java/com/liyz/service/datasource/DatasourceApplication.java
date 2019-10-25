@@ -22,7 +22,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 public class DatasourceApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(DatasourceApplication.class);
-        application.run(args);
+        SpringApplication.run(DatasourceApplication.class, args);
     }
 }
