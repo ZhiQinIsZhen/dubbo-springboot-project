@@ -19,8 +19,7 @@ import javax.validation.constraints.NotNull;
 public class UserInfoService extends AbstractService<UserInfoDO> {
 
     @Override
-    public UserInfoDO getById(Long id) {
-
+    public UserInfoDO getById(Object id) {
         return super.getById(id);
     }
 
