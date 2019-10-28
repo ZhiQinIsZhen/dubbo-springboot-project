@@ -33,7 +33,7 @@ public interface Service<T> {
      *
      * @param id 主键
      */
-    int removeById(Long id);
+    int removeById(Object id);
 
     /**
      * 更新
@@ -48,7 +48,7 @@ public interface Service<T> {
      * @param id 主键
      * @return
      */
-    T getById(Long id);
+    T getById(Object id);
 
     /**
      * 通过Model中某个成员变量名称（非数据表中column的名称）查找,value需符合unique约束

@@ -24,4 +24,19 @@ public interface RemoteFileService {
      * 下载
      */
     FileInfoBO download(FileInfoBO fileInfoBO);
+
+    /**
+     * 删除文件
+     *
+     * @param fileInfoBO
+     */
+    void delete(FileInfoBO fileInfoBO);
+
+    /**
+     * 修改图片
+     *
+     * @param fileInfoBO
+     * @return
+     */
+    String update(FileInfoBO fileInfoBO);
 }

@@ -8,6 +8,7 @@ import com.liyz.service.file.constant.FileType;
 import com.liyz.service.file.remote.RemoteFileService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -97,5 +98,48 @@ public class FileController {
                 log.error("download file write fail", e);
             }
         }
+    }
+
+    @ApiOperation(value = "删除文件",
+            notes = "type说明：0：上传头像，1：身份认证，3：banner图片，4：logo")
+    @DeleteMapping("/delete")
+    public Result delete(@ApiParam(value = "0", required = true) Integer fileType,
+                         @ApiParam(value = "1234567890", required = true) String fileKey) {
+        if (fileType == null || StringUtils.isBlank(fileKey)) {
+            return Result.error(CommonCodeEnum.ParameterError);
+        }
+        FileType type = FileType.getByCode(fileType);
+        if (type == null) {
+            return Result.error(CommonCodeEnum.ParameterError);
+        }
+        FileInfoBO fileInfoBO = new FileInfoBO();
+        fileInfoBO.setFileKey(fileKey);
+        fileInfoBO.setFileType(fileType);
+        remoteFileService.delete(fileInfoBO);
+        return Result.success();
+    }
+
+    @ApiOperation(value = "修改图片,支持JPG、PNG、JPEG、BMP",
+            notes = "type说明：0：上传头像，1：身份认证，3：banner图片，4：logo")
+    @ApiImplicitParam(name = "Authorization", value = "认证token", required = true, dataType = "String", paramType = "header")
+    @PostMapping("/update")
+    public Result update(@ApiParam(value = "0", required = true) Integer fileType,
+                         @ApiParam(value = "1234567890", required = true) String fileKey,
+                         @RequestParam("file") MultipartFile file) throws IOException {
+        if (fileType == null || file == null || StringUtils.isBlank(fileKey)) {
+            return Result.error(CommonCodeEnum.ParameterError);
+        }
+        FileType type = FileType.getByCode(fileType);
+        if (type == null) {
+            return Result.error(CommonCodeEnum.ParameterError);
+        }
+        FileInfoBO fileInfoBO = new FileInfoBO();
+        fileInfoBO.setFileContentType(file.getContentType());
+        fileInfoBO.setFileName(file.getOriginalFilename());
+        fileInfoBO.setBytes(file.getBytes());
+        fileInfoBO.setFileKey(fileKey);
+        fileInfoBO.setFileType(fileType);
+        String key = remoteFileService.update(fileInfoBO);
+        return Result.success(key);
     }
 }

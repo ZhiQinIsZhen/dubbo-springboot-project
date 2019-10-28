@@ -46,7 +46,7 @@ public abstract class AbstractService<T> implements Service<T> {
     }
 
     @Override
-    public int removeById(Long id) {
+    public int removeById(Object id) {
         return mapper.deleteByPrimaryKey(id);
     }
 
@@ -56,7 +56,7 @@ public abstract class AbstractService<T> implements Service<T> {
     }
 
     @Override
-    public T getById(Long id) {
+    public T getById(Object id) {
         return mapper.selectByPrimaryKey(id);
     }
 

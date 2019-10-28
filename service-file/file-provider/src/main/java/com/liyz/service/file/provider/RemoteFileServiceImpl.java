@@ -1,5 +1,6 @@
 package com.liyz.service.file.provider;
 
+import com.google.common.collect.Lists;
 import com.liyz.common.base.enums.CommonCodeEnum;
 import com.liyz.common.base.util.CommonConverterUtil;
 import com.liyz.common.base.util.DateUtil;
@@ -72,6 +73,7 @@ public class RemoteFileServiceImpl implements RemoteFileService {
             } catch (IOException e) {
                 log.error("save file fail error : ", e);
             }
+            path.setLength(0);
             list.add(fileInfoDO.getFileKey());
         }
         return list;
@@ -100,5 +102,58 @@ public class RemoteFileServiceImpl implements RemoteFileService {
             log.error("download fail error", e);
             throw new RemoteFileServiceException(CommonCodeEnum.NoData);
         }
+    }
+
+    @Override
+    public void delete(FileInfoBO fileInfoBO) {
+        //这里的删除为逻辑删除，非物理删除
+        FileInfoDO fileInfoDO = new FileInfoDO();
+        fileInfoDO.setFileKey(fileInfoBO.getFileKey());
+        fileInfoDO.setFileType(fileInfoBO.getFileType());
+        fileInfoDO.setIsInactive(1);
+        fileInfoDO.setUpdateTime(DateUtil.convertLocalDateTimeToDate(LocalDateTime.now()));
+        fileInfoService.updateById(fileInfoDO);
+    }
+
+    @Override
+    public String update(FileInfoBO fileInfoBO) {
+        FileType fileType = FileType.getByCode(fileInfoBO.getFileType());
+        FileInfoDO old = fileInfoService.getById(fileInfoBO.getFileKey());
+        LocalDateTime localDateTime = LocalDateTime.now();
+        StringBuilder path = new StringBuilder();
+        path.append(DEFAULT_ROOT_PATH).append(fileType.getSubPath()).append(localDateTime.getYear()).append("/")
+                .append(localDateTime.getMonthValue()).append("/").append(localDateTime.getDayOfMonth());
+        File upFile = new File(path.toString());
+        upFile.setWritable(true, false);
+        if (!upFile.exists()) {
+            upFile.mkdirs();
+        }
+        FileInfoDO fileInfoDO = new FileInfoDO();
+        fileInfoDO.setFileKey(String.valueOf(fileSnowflakeIdUtil.getId()));
+        fileInfoDO.setFileName(fileInfoBO.getFileName());
+        fileInfoDO.setFileContentType(fileInfoBO.getFileContentType());
+        fileInfoDO.setFileType(fileType.getCode());
+        String[] exts = fileInfoBO.getFileName().split("\\.");
+        fileInfoDO.setFileExt(exts[exts.length-1]);
+        fileInfoDO.setCreateTime(DateUtil.convertLocalDateTimeToDate(localDateTime));
+        fileInfoDO.setUpdateTime(DateUtil.convertLocalDateTimeToDate(localDateTime));
+        path.append("/").append(fileInfoDO.getFileKey()).append(".").append(fileInfoDO.getFileExt());
+        fileInfoDO.setFilePath(path.toString());
+        File dest = new File(path.toString());
+        try {
+            FileUtils.copyInputStreamToFile(new ByteArrayInputStream(fileInfoBO.getBytes()), dest);
+        } catch (IOException e) {
+            log.error("save file fail error : ", e);
+        }
+
+        FileInfoDO newDO = CommonConverterUtil.beanCopy(old, FileInfoDO.class);
+        newDO.setIsInactive(1);
+        newDO.setFileKey(fileInfoDO.getFileKey());
+        fileInfoService.save(newDO);
+
+        fileInfoDO.setFileKey(old.getFileKey());
+        fileInfoDO.setCreateTime(old.getCreateTime());
+        fileInfoService.updateById(fileInfoDO);
+        return fileInfoDO.getFileKey();
     }
 }
