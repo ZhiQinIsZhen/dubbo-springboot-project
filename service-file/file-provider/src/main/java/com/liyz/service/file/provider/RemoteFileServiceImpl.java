@@ -85,9 +85,9 @@ public class RemoteFileServiceImpl implements RemoteFileService {
         }
         FileInputStream fis;
         try {
-            fis = new FileInputStream(fileInfoDO.getFilePath());
+            fis = new FileInputStream(new File(fileInfoDO.getFilePath()));
             FileInfoBO result = CommonConverterUtil.beanCopy(fileInfoDO, FileInfoBO.class);
-            ByteArrayOutputStream bos = new ByteArrayOutputStream(fis.read());
+            ByteArrayOutputStream bos = new ByteArrayOutputStream(1024);
             byte[] b = new byte[1024];
             int len;
             while((len = fis.read(b)) != -1) {

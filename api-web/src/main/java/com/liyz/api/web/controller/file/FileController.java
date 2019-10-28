@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,11 +80,19 @@ public class FileController {
         param.setFileKey(fileKey);
         FileInfoBO fileInfoBO = remoteFileService.download(param);
         if (fileInfoBO != null) {
-            response.setContentType("text/html;charset=utf-8");
-            response.setHeader("Content-Disposition", "attachment;filename=" + fileInfoBO.getFileName());
+            response.setContentType(fileInfoBO.getFileContentType());
+            response.setCharacterEncoding("utf-8");
+            InputStream inputStream;
             try {
+                response.setHeader("Content-Disposition", "inline;fileName=" + URLEncoder.encode(fileInfoBO.getFileName(), "UTF-8"));
                 OutputStream nos = response.getOutputStream();
-                nos.write(fileInfoBO.getBytes());
+                inputStream = new ByteArrayInputStream(fileInfoBO.getBytes());
+                int len;
+                byte[] buffer = new byte[2048];
+                while ((len = inputStream.read(buffer)) != -1) {
+                    nos.write(buffer, 0, len);
+                }
+                nos.flush();
             } catch (IOException e) {
                 log.error("download file write fail", e);
             }
