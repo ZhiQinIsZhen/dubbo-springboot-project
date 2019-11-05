@@ -15,4 +15,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class FileInfoService extends AbstractService<FileInfoDO> {
+
+    public FileInfoDO getByMd5(String fileMd5) {
+        FileInfoDO param = new FileInfoDO();
+        param.setFileMd5(fileMd5);
+        param.setIsInactive(null);
+        return mapper.selectOne(param);
+    }
 }

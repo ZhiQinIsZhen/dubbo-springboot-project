@@ -22,6 +22,7 @@ public enum  CommonCodeEnum implements ServiceCodeEnum {
     ParameterError("10009", "参数异常"),
     LimitCount("10010", "超出最大访问限制"),
     ThirdServiceError("10011", "调用第三方服务异常"),
+    OldFileNotExsist("10012", "原文件不存在"),
     ;
 
     private String code;

@@ -24,6 +24,9 @@ public class FileInfoDO implements Serializable {
     @Column(name = "file_key")
     private String fileKey;
 
+    @Column(name = "file_md5")
+    private String fileMd5;
+
     @Column(name = "file_path")
     private String filePath;
 
