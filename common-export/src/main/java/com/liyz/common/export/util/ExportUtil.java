@@ -7,7 +7,6 @@ import com.liyz.common.export.exception.ExportException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.io.output.FileWriterWithEncoding;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -28,7 +27,7 @@ public final class ExportUtil {
 
     public static <T> void exportCsv(HttpServletResponse response, String title, String savePath, List<T> list,
                                      Class<T> cls) throws ExportException {
-        if (StringUtils.isBlank(title) || StringUtils.isBlank(savePath) || list == null || list.size() == 0
+        if (title == null || savePath == null || list == null || list.size() == 0
                 || cls == null || cls == String.class) {
             throw new ExportException(ExportConstant.EXCEPTION_MSG_PARAM_ERROR);
         }
@@ -49,7 +48,7 @@ public final class ExportUtil {
     }
 
     public static <T> void exportCsv(String title, String savePath, List<T> list, Class<T> cls) throws Exception {
-        if (StringUtils.isBlank(title) || StringUtils.isBlank(savePath) || list == null || list.size() == 0
+        if (title == null || savePath == null || list == null || list.size() == 0
                 || cls == null || cls == String.class) {
             throw new ExportException(ExportConstant.EXCEPTION_MSG_PARAM_ERROR);
         }
