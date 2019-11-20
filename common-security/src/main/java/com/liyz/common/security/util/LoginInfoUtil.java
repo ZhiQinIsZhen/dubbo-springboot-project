@@ -1,6 +1,6 @@
 package com.liyz.common.security.util;
 
-import com.liyz.service.member.bo.UserInfoBO;
+import com.liyz.common.base.remote.bo.JwtUserBO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,23 +13,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginInfoUtil {
 
-    private ThreadLocal<UserInfoBO> userBOContainer = new ThreadLocal<>();
+    private ThreadLocal<JwtUserBO> userBOContainer = new ThreadLocal<>();
 
     /**
      * 获取登录user
      *
-     * @return UserInfo
+     * @return JwtUserBO
      */
-    public UserInfoBO getUser() {
+    public JwtUserBO getUser() {
         return userBOContainer.get();
     }
 
     /**
      * 设置登录user
      *
-     * @param user UserInfo
+     * @param user JwtUserBO
      */
-    public void setUser(UserInfoBO user) {
+    public void setUser(JwtUserBO user) {
         this.userBOContainer.set(user);
     }
 }

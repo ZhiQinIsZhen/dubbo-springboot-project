@@ -1,9 +1,9 @@
 package com.liyz.common.security.core;
 
+import com.liyz.common.base.remote.RemoteJwtUserService;
+import com.liyz.common.base.remote.bo.JwtUserBO;
 import com.liyz.common.security.util.JwtAuthenticationUtil;
 import com.liyz.common.security.util.LoginInfoUtil;
-import com.liyz.service.member.bo.UserInfoBO;
-import com.liyz.service.member.remote.RemoteUserInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,18 +21,16 @@ import java.util.Objects;
 @AllArgsConstructor
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
-    private RemoteUserInfoService remoteUserInfoService;
+    private RemoteJwtUserService remoteJwtUserService;
     private LoginInfoUtil loginInfoUtil;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserInfoBO userInfoBO = new UserInfoBO();
-        userInfoBO.setLoginName(username);
-        userInfoBO = remoteUserInfoService.getByCondition(userInfoBO);
-        if (Objects.isNull(userInfoBO)) {
+        JwtUserBO jwtUserBO = remoteJwtUserService.getByLoginName(username);
+        if (Objects.isNull(jwtUserBO)) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         }
-        loginInfoUtil.setUser(userInfoBO);
-        return JwtAuthenticationUtil.create(userInfoBO);
+        loginInfoUtil.setUser(jwtUserBO);
+        return JwtAuthenticationUtil.create(jwtUserBO);
     }
 }

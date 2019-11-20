@@ -2,11 +2,11 @@ package com.liyz.common.security.util;
 
 import com.alibaba.fastjson.JSON;
 import com.liyz.common.base.enums.CommonCodeEnum;
+import com.liyz.common.base.remote.bo.JwtUserBO;
 import com.liyz.common.base.result.Result;
 import com.liyz.common.base.util.SpringContextUtil;
 import com.liyz.common.security.annotation.Anonymous;
 import com.liyz.common.security.core.JwtUserDetails;
-import com.liyz.service.member.bo.UserInfoBO;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JwtAuthenticationUtil {
 
-    public static JwtUserDetails create(UserInfoBO user) {
+    public static JwtUserDetails create(JwtUserBO user) {
         if (Objects.isNull(user)) {
             return null;
         }

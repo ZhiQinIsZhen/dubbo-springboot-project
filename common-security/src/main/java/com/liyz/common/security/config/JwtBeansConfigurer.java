@@ -1,8 +1,8 @@
 package com.liyz.common.security.config;
 
+import com.liyz.common.base.remote.RemoteJwtUserService;
 import com.liyz.common.security.core.JwtUserDetailsServiceImpl;
 import com.liyz.common.security.util.LoginInfoUtil;
-import com.liyz.service.member.remote.RemoteUserInfoService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -23,7 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class JwtBeansConfigurer {
 
     @Reference(version = "1.0.0")
-    RemoteUserInfoService remoteUserInfoService;
+    RemoteJwtUserService remoteJwtUserService;
 
     @Autowired
     LoginInfoUtil loginInfoUtil;
@@ -37,6 +37,6 @@ public class JwtBeansConfigurer {
     @Bean
     @ConditionalOnMissingBean(UserDetailsService.class)
     public UserDetailsService userDetailsService() {
-        return new JwtUserDetailsServiceImpl(remoteUserInfoService, loginInfoUtil);
+        return new JwtUserDetailsServiceImpl(remoteJwtUserService, loginInfoUtil);
     }
 }

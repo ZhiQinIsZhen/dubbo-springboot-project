@@ -1,9 +1,9 @@
 package com.liyz.api.web.controller.business;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.liyz.api.web.dto.page.PageBaseDTO;
 import com.liyz.api.web.vo.UserInfoVO;
+import com.liyz.common.base.remote.bo.JwtUserBO;
 import com.liyz.common.base.result.PageResult;
 import com.liyz.common.base.result.Result;
 import com.liyz.common.base.util.CommonConverterUtil;
@@ -52,14 +52,14 @@ public class UserInfoController {
 
     @GetMapping("/info")
     public Result<UserInfoVO> info() {
-        UserInfoBO userInfoBO = loginInfoUtil.getUser();
-        return Result.success(CommonConverterUtil.beanConverter(userInfoBO, UserInfoVO.class));
+        JwtUserBO jwtUserBO = loginInfoUtil.getUser();
+        return Result.success(CommonConverterUtil.beanConverter(jwtUserBO, UserInfoVO.class));
     }
 
     @GetMapping("/id")
     public Result<Long> id() {
-        UserInfoBO userInfoBO = loginInfoUtil.getUser();
-        return Result.success(Objects.isNull(userInfoBO) ? null : userInfoBO.getUserId());
+        JwtUserBO jwtUserBO = loginInfoUtil.getUser();
+        return Result.success(Objects.isNull(jwtUserBO) ? null : jwtUserBO.getUserId());
     }
 
     @GetMapping("/page")
@@ -68,7 +68,6 @@ public class UserInfoController {
             pageBaseDTO = new PageBaseDTO();
         }
         PageInfo<UserInfoBO> boPageInfo = remoteUserInfoService.pageList(pageBaseDTO.getPageNum(), pageBaseDTO.getPageSize());
-        log.info("boPageInfo :{}", ((Page)boPageInfo.getList()).getPageSize());
         PageInfo<UserInfoVO> voPageInfo = CommonConverterUtil.PageConverter(boPageInfo, UserInfoVO.class);
         return PageResult.success(voPageInfo);
     }

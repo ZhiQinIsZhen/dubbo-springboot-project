@@ -3,6 +3,7 @@ package com.liyz.api.web.controller.auth;
 import com.liyz.api.web.dto.LoginDTO;
 import com.liyz.api.web.vo.LoginVO;
 import com.liyz.common.base.enums.CommonCodeEnum;
+import com.liyz.common.base.remote.bo.JwtUserBO;
 import com.liyz.common.base.result.Result;
 import com.liyz.common.base.util.CommonConverterUtil;
 import com.liyz.common.controller.HttpRequestUtil;
@@ -13,7 +14,6 @@ import com.liyz.common.security.annotation.Anonymous;
 import com.liyz.common.security.util.JwtAuthenticationUtil;
 import com.liyz.common.security.util.JwtTokenAnalysisUtil;
 import com.liyz.common.security.util.LoginInfoUtil;
-import com.liyz.service.member.bo.UserInfoBO;
 import com.liyz.service.member.constant.MemberEnum;
 import com.liyz.service.member.remote.RemoteUserInfoService;
 import io.swagger.annotations.Api;
@@ -69,7 +69,7 @@ public class AuthenticationController {
     @Reference(version = "${version}")
     RemoteUserInfoService remoteUserInfoService;
 
-    @Limits(value = {@Limit(count = 0.1, type = LimitType.IP), @Limit(count = 10)})
+    @Limits(value = {@Limit(count = 10, type = LimitType.IP), @Limit(count = 10)})
     @Anonymous
     @PostMapping("/login")
     public Result<LoginVO> login(@Validated({LoginDTO.Login.class}) @RequestBody
@@ -106,7 +106,7 @@ public class AuthenticationController {
         }else{
             deviceEnum = MemberEnum.DeviceEnum.WEB;
         }
-        UserInfoBO userInfo = loginInfoUtil.getUser();
+        JwtUserBO userInfo = loginInfoUtil.getUser();
         Date date = remoteUserInfoService.kickDownLine(userInfo.getUserId(), deviceEnum);
         final UserDetails userDetails = JwtAuthenticationUtil.create(userInfo);
         final String token = jwtTokenAnalysisUtil.generateToken(userDetails, device, date, userInfo.getUserId());
