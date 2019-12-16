@@ -9,6 +9,7 @@ import com.liyz.common.base.util.CommonConverterUtil;
 import com.liyz.common.controller.HttpRequestUtil;
 import com.liyz.common.controller.annotation.Limit;
 import com.liyz.common.controller.annotation.Limits;
+import com.liyz.common.controller.annotation.LoginUser;
 import com.liyz.common.controller.constant.LimitType;
 import com.liyz.common.security.annotation.Anonymous;
 import com.liyz.common.security.util.JwtAuthenticationUtil;
@@ -73,7 +74,7 @@ public class AuthenticationController {
     @Anonymous
     @PostMapping("/login")
     public Result<LoginVO> login(@Validated({LoginDTO.Login.class}) @RequestBody
-                                             LoginDTO loginDTO) {
+                                             LoginDTO loginDTO, @LoginUser com.liyz.common.controller.constant.LoginUser loginUser) {
         HttpServletRequest httpServletRequest = HttpRequestUtil.getRequest();
         LiteDeviceResolver resolver = new LiteDeviceResolver();
         Device device = resolver.resolveDevice(httpServletRequest);

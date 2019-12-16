@@ -7,12 +7,14 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.alibaba.fastjson.support.springfox.SwaggerJsonSerializer;
 import com.liyz.common.base.filter.json.DesensitizationContextValueFilter;
+import com.liyz.common.controller.resolver.LoginUserArgumentResolver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.spring.web.json.Json;
@@ -47,6 +49,11 @@ public class WebMvcConfigurer extends WebMvcConfigurationSupport {
                     .addResourceLocations("classpath:/META-INF/resources/");
         }
         super.addResourceHandlers(registry);
+    }
+
+    @Override
+    protected void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(new LoginUserArgumentResolver());
     }
 
     /**
