@@ -1,11 +1,14 @@
 package com.liyz.service.member.provider;
 
+import com.liyz.common.base.enums.CommonCodeEnum;
 import com.liyz.common.base.remote.RemoteJwtUserService;
 import com.liyz.common.base.remote.bo.JwtUserBO;
 import com.liyz.common.base.util.CommonConverterUtil;
+import com.liyz.service.member.exception.RemoteMemberServiceException;
 import com.liyz.service.member.handler.UserInfoService;
 import com.liyz.service.member.model.UserInfoDO;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
