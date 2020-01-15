@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -28,11 +32,26 @@ import java.util.Map;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class CommonConverterUtil {
 
-    private static ThreadLocal<SimpleBeanCopier> threadLocal = new CopierThreadLocal<>();
+//    private static ThreadLocal<SimpleBeanCopier> threadLocal = new CopierThreadLocal<>();
+//
+//    private static class CopierThreadLocal<BaseBeanCopier> extends ThreadLocal<SimpleBeanCopier> {
+//        @Override
+//        protected SimpleBeanCopier initialValue() {
+//            return new SimpleBeanCopier();
+//        }
+//    }
 
-    private static class CopierThreadLocal<BaseBeanCopier> extends ThreadLocal<SimpleBeanCopier> {
-        @Override
-        protected SimpleBeanCopier initialValue() {
+    private static final SimpleBeanCopier copier = new SimpleBeanCopier();
+
+    private static SimpleBeanCopier getClone() {
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream oop = new ObjectOutputStream(bos);
+            oop.writeObject(copier);
+            ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            return (SimpleBeanCopier) ois.readObject();
+        } catch (Exception e) {
             return new SimpleBeanCopier();
         }
     }
@@ -75,7 +94,7 @@ public final class CommonConverterUtil {
         if (sourceList.size() == 0) {
             return Lists.newArrayList();
         }
-        SimpleBeanCopier simpleBeanCopier = threadLocal.get();
+        SimpleBeanCopier simpleBeanCopier = getClone();
         simpleBeanCopier.setSourceClass(sourceList.get(0).getClass());
         simpleBeanCopier.setTargetClass(targetClass);
         simpleBeanCopier.init();
@@ -108,7 +127,7 @@ public final class CommonConverterUtil {
         if (sourcePage.getSize() == 0) {
             return beanCopy(sourcePage, PageInfo.class);
         }
-        SimpleBeanCopier simpleBeanCopier = threadLocal.get();
+        SimpleBeanCopier simpleBeanCopier = getClone();
         simpleBeanCopier.setSourceClass(sourcePage.getList().get(0).getClass());
         simpleBeanCopier.setTargetClass(targetClass);
         simpleBeanCopier.init();
@@ -139,7 +158,7 @@ public final class CommonConverterUtil {
         if (source == null) {
             return null;
         }
-        SimpleBeanCopier simpleBeanCopier = threadLocal.get();
+        SimpleBeanCopier simpleBeanCopier = getClone();
         simpleBeanCopier.setSourceClass(source.getClass());
         simpleBeanCopier.setTargetClass(targetClass);
         simpleBeanCopier.init();
