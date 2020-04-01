@@ -32,6 +32,10 @@ public @interface ElasticDataFlowJob {
 
     String description() default "";
 
+    boolean failover() default false;
+
+    boolean misfire() default false;
+
     boolean disabled() default false;
 
     boolean overwrite() default true;
@@ -43,4 +47,6 @@ public @interface ElasticDataFlowJob {
     String jobExceptionHandler() default TaskConstant.JobExceptionHandler;
 
     String executorServiceHandler() default TaskConstant.ExecutorServiceHandler;
+
+    String jobShardingStrategyClass() default "";
 }
