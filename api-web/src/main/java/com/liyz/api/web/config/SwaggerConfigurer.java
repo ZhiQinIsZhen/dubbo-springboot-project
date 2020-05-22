@@ -48,16 +48,16 @@ public class SwaggerConfigurer extends SwaggerBaseConfigurer {
                 .build().groupName("业务-API");
     }
 
-    @Bean
-    public Docket createErrorApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .protocols(Sets.newHashSet("https", "http"))
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.liyz.api.web.controller.error"))
-                .paths(PathSelectors.any())
-                .build().groupName("错误-API");
-    }
+//    @Bean
+//    public Docket createErrorApi() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .apiInfo(apiInfo())
+//                .protocols(Sets.newHashSet("https", "http"))
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.liyz.api.web.controller.error"))
+//                .paths(PathSelectors.any())
+//                .build().groupName("错误-API");
+//    }
 
     @Bean
     public Docket createFileApi() {

@@ -7,6 +7,7 @@ import com.liyz.common.base.remote.bo.JwtUserBO;
 import com.liyz.common.base.result.PageResult;
 import com.liyz.common.base.result.Result;
 import com.liyz.common.base.util.CommonConverterUtil;
+import com.liyz.common.security.annotation.Anonymous;
 import com.liyz.common.security.util.LoginInfoUtil;
 import com.liyz.service.member.bo.UserInfoBO;
 import com.liyz.service.member.remote.RemoteUserInfoService;
@@ -15,6 +16,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.rpc.cluster.support.FailfastCluster;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +45,7 @@ import java.util.Objects;
 @RequestMapping("/user")
 public class UserInfoController {
 
-    @DubboReference(version = "${version}")
+    @DubboReference(version = "${version}", cluster = FailfastCluster.NAME)
     RemoteUserInfoService remoteUserInfoService;
 
     @Autowired
@@ -70,5 +72,11 @@ public class UserInfoController {
         PageInfo<UserInfoBO> boPageInfo = remoteUserInfoService.pageList(pageBaseDTO.getPageNum(), pageBaseDTO.getPageSize());
         PageInfo<UserInfoVO> voPageInfo = CommonConverterUtil.PageConverter(boPageInfo, UserInfoVO.class);
         return PageResult.success(voPageInfo);
+    }
+
+    @Anonymous
+    @GetMapping("/test")
+    public Result<Boolean> test() {
+        return Result.success(remoteUserInfoService.test());
     }
 }
