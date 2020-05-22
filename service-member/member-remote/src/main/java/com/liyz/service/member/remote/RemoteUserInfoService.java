@@ -24,4 +24,5 @@ public interface RemoteUserInfoService {
 
     Date kickDownLine(@NotNull Long userId, @NotNull MemberEnum.DeviceEnum deviceEnum);
 
+    Boolean test();
 }

@@ -82,4 +82,14 @@ public class RemoteUserInfoServiceImpl implements RemoteUserInfoService {
         userInfoService.updateById(CommonConverterUtil.beanConverter(userInfoBO, UserInfoDO.class));
         return DateUtil.convertLocalDateTimeToDate(nowLocalDateTime);
     }
+
+    @Override
+    public Boolean test() {
+        log.info(".......test inter......");
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {}
+        log.info(".......test end......");
+        return Boolean.TRUE;
+    }
 }

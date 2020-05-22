@@ -27,7 +27,6 @@ public class RemoteJwtUserServiceImpl implements RemoteJwtUserService {
     public JwtUserBO getByLoginName(String loginName) {
         UserInfoDO userInfoDO = null;
         try {
-            Thread.sleep(10000);
             UserInfoDO param = new UserInfoDO();
             param.setLoginName(loginName);
             userInfoDO = userInfoService.getOne(param);
