@@ -9,7 +9,7 @@ import com.liyz.service.file.remote.RemoteFileService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,7 +42,7 @@ import java.util.List;
 @RequestMapping("/file")
 public class FileController {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     RemoteFileService remoteFileService;
 
     @ApiOperation(value = "批量上传图片,支持JPG、PNG、JPEG、BMP",

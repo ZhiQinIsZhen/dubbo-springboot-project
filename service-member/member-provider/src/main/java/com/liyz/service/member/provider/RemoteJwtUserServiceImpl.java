@@ -1,15 +1,12 @@
 package com.liyz.service.member.provider;
 
-import com.liyz.common.base.enums.CommonCodeEnum;
 import com.liyz.common.base.remote.RemoteJwtUserService;
 import com.liyz.common.base.remote.bo.JwtUserBO;
 import com.liyz.common.base.util.CommonConverterUtil;
-import com.liyz.service.member.exception.RemoteMemberServiceException;
 import com.liyz.service.member.handler.UserInfoService;
 import com.liyz.service.member.model.UserInfoDO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -20,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date 2019/11/20 10:40
  */
 @Slf4j
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class RemoteJwtUserServiceImpl implements RemoteJwtUserService {
 
     @Autowired
@@ -30,6 +27,7 @@ public class RemoteJwtUserServiceImpl implements RemoteJwtUserService {
     public JwtUserBO getByLoginName(String loginName) {
         UserInfoDO userInfoDO = null;
         try {
+            Thread.sleep(10000);
             UserInfoDO param = new UserInfoDO();
             param.setLoginName(loginName);
             userInfoDO = userInfoService.getOne(param);

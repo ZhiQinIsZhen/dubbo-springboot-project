@@ -11,6 +11,7 @@ import com.liyz.service.third.handler.service.ThirdService;
 import com.liyz.service.third.remote.RemoteThirdDataService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ import java.util.Map;
  * @date 2019/9/18 17:35
  */
 @Slf4j
-@Service
+@DubboService(version = "1.0.0")
 public class RemoteThirdDataServiceImpl implements RemoteThirdDataService {
 
     @Override

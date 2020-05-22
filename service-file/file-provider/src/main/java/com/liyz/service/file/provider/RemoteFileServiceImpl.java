@@ -12,7 +12,7 @@ import com.liyz.service.file.remote.RemoteFileService;
 import com.liyz.service.file.service.FileInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 
@@ -30,7 +30,7 @@ import java.util.Objects;
  * @date 2019/10/24 16:06
  */
 @Slf4j
-@Service(version = "1.0.0", protocol = "hessian")
+@DubboService(version = "1.0.0", protocol = "hessian")
 public class RemoteFileServiceImpl implements RemoteFileService {
 
     private static final String DEFAULT_ROOT_PATH = "/file";

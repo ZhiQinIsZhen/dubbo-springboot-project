@@ -3,7 +3,7 @@ package com.liyz.common.security.config;
 import com.liyz.common.base.remote.RemoteJwtUserService;
 import com.liyz.common.security.core.JwtUserDetailsServiceImpl;
 import com.liyz.common.security.util.LoginInfoUtil;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class JwtBeansConfigurer {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     RemoteJwtUserService remoteJwtUserService;
 
     @Autowired

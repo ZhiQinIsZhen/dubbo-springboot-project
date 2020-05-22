@@ -12,8 +12,7 @@ import com.liyz.service.member.handler.UserInfoService;
 import com.liyz.service.member.model.UserInfoDO;
 import com.liyz.service.member.remote.RemoteUserInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -30,7 +29,7 @@ import java.util.Objects;
  * @date 2019/9/7 15:46
  */
 @Slf4j
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class RemoteUserInfoServiceImpl implements RemoteUserInfoService {
 
     @Autowired

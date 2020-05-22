@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,9 +38,9 @@ import java.util.Objects;
 @RequestMapping("/datasource")
 public class DatasourceController {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     RemoteDataTableService remoteDataTableService;
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     RemoteSystemService remoteSystemService;
 
     @GetMapping("/all")

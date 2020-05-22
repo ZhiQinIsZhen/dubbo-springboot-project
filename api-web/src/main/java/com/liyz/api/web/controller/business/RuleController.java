@@ -16,7 +16,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +42,7 @@ import java.util.List;
 @RequestMapping("/rule")
 public class RuleController {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     RemoteRuleService remoteRuleService;
 
     @PostMapping("/add")

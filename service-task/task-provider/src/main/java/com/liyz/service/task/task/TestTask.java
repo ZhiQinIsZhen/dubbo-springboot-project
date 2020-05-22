@@ -7,7 +7,7 @@ import com.liyz.common.task.annotation.ElasticSimpleJob;
 import com.liyz.common.task.constant.TaskConstant;
 import com.liyz.service.member.remote.RemoteUserInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 
 /**
  * 注释:
@@ -21,7 +21,7 @@ import org.apache.dubbo.config.annotation.Reference;
         shardingItemParameters = "0=1,1=2,2=3", dataSource = TaskConstant.DEFAULT_DATASOURCE)
 public class TestTask implements SimpleJob {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     RemoteUserInfoService remoteUserInfoService;
 
     @Override

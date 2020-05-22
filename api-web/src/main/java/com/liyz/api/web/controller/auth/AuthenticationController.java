@@ -21,7 +21,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mobile.device.Device;
 import org.springframework.mobile.device.LiteDeviceResolver;
@@ -67,7 +67,7 @@ public class AuthenticationController {
     @Autowired
     LoginInfoUtil loginInfoUtil;
 
-    @Reference(version = "${version}")
+    @DubboReference(version = "${version}")
     RemoteUserInfoService remoteUserInfoService;
 
     @Limits(value = {@Limit(count = 10, type = LimitType.IP), @Limit(count = 10)})

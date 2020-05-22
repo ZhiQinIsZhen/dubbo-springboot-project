@@ -10,7 +10,7 @@ import com.liyz.service.datasource.handler.DynamicRuleService;
 import com.liyz.service.datasource.model.RuleDO;
 import com.liyz.service.datasource.remote.RemoteRuleService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.constraints.NotNull;
@@ -25,7 +25,7 @@ import java.util.List;
  * @date 2019/9/2 15:37
  */
 @Slf4j
-@Service(timeout = 2000, version = "1.0.0", actives = 1000)
+@DubboService(timeout = 2000, version = "1.0.0", actives = 1000)
 public class RemoteRuleServiceImpl implements RemoteRuleService {
 
     @Autowired

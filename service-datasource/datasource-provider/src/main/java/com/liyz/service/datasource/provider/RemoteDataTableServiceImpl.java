@@ -8,7 +8,7 @@ import com.liyz.service.datasource.exception.RemoteDatasourceServiceException;
 import com.liyz.service.datasource.model.DataTableDO;
 import com.liyz.service.datasource.remote.RemoteDataTableService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  * @date 2019/8/29 16:35
  */
 @Slf4j
-@Service(timeout = 2000, version = "1.0.0", actives = 1000)
+@DubboService(timeout = 2000, version = "1.0.0", actives = 1000)
 public class RemoteDataTableServiceImpl implements RemoteDataTableService {
 
     @Autowired
