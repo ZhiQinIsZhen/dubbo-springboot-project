@@ -1,89 +1,75 @@
-# dubbo-springboot-project
-一个dubbo的springboot项目，dubbo版本用的是最新的apache的版本，包含登录、推送、分布式定时任务等项目。
+Dubbo Springboot Mybatis Project for Java
+=========================================
 
-[dobbo-官网](http://dubbo.apache.org/zh-cn/)
-[dubbo-github](https://github.com/apache/dubbo)
-[dubbo-admin](https://github.com/apache/dubbo-admin)
-[springboot-官网](https://spring.io/projects/spring-boot/)
+[![Build Status](https://img.shields.io/badge/Build-ZhiQinlsZhen-brightgreen)](https://github.com/ZhiQinIsZhen/dubbo-springboot-project)
+![maven](https://img.shields.io/maven-central/v/org.apache.dubbo/dubbo.svg)
+[![dubbo](https://img.shields.io/badge/Dubbo-2.7.7-brightgreen)](http://dubbo.apache.org/zh-cn/index.html)
+![spring-boot](https://img.shields.io/badge/Springboot-2.2.7.RELEASE-brightgreen)
+![Mybatis](https://img.shields.io/badge/Mybatis-2.1.2-brightgreen)
+
+这是一个Apache Dubbo项目，基于SpringBoot、Mybatis等框架。
+
+- 主框架基于：Apache Dubbo、SpringBoot、Mybatis、Zookeeper、ElasticSearch、Kafka
+- 登陆安全基于：Spring-security、jwt、redisson
+- 接口文档基于：Swagger-knife4j
+- 限流基于：Google-guava
+- 分布式定时任务基于：Elastic-job（注解式）
+- 推送聊天基于：Netty
+- 分库分表读写分离基于：Sharding-jdbc
+
+
+#### 核心依赖 
+
+依赖 | 版本
+--- | ---
+Spring Boot |   2.2.7.RELEASE
+Spring security | 2.2.7.RELEASE
+Dubbo |  2.7.7
+Mybatis | 2.1.2
+Zookeeper Curator | 4.3.0
+Redisson |  3.13.0
+Elastic Job | 2.1.5
+Swagger Knife4j | 2.0.3
+
 
 ### 目录结构说明
-
-- common-parent：从名字可以看出，它是整个项目的父pom文件，里面主要包含了springboot框架的版本，和一些常用工具包，方便以后升级版本（注：我将dubbo remote包也放进去了，如果有强迫症的同学可以重新命名一个包，控制每个分布式服务的包的版本）
-
-- common-base：基本包，也是整个项目的基本包。里面主要增加了一个dubbo框架的处理。
-	* `自定义脱敏（Desensitization）：这个自定义脱敏是基于fastjson，用法如下 注：我将springboot默认的jsckson序列化方式修改成了fastjson`
-	
-		```java
-		@Desensitization(endIndex = 3)
-		private String loginName;
-
-		private String nickName;
-
-		@Desensitization(DesensitizationType.REAL_NAME)
-		private String userName;
-
-		@Desensitization(DesensitizationType.MOBILE)
-		private String mobile;
-
-		@Desensitization(DesensitizationType.EMAIL)
-		private String email;
-		```
-		
-	* `dubbo服务rpc异常类（RemoteServiceException）：每个服务可以自己去继承该接口，方便后续日志或者异常统计`
-	* `dubbo服务调用异常监听过滤器（RemoteServiceExceptionFilter）：apache实现方式有所修改，需要继承其抽象类 ListenableFilter，有兴趣同学可以去官网查看 注：也需要在resources文加下添加一个文件：META-INF/dubbo/org.apache.dubbo.rpc.Filter`
-	* `消息返回体：Result -> 非分页查询所有返回体；PageResult：分页查询返回体`
-	* `util包下放一些常用的工具类，大家可以自定义添加，先主要有实体类拷贝、时间、以及spring容器...`
-	
-- common-dao：服务中dao层需要引用，定义了通用mapper的顶层接口（mapper）、service层的顶层接口以及抽象类，所有大家对于单表操作不再需要维护一个*Mapper.xml文件了，当然了我在这里也提倡大家尽量单表操作，将多表关系在业务层来实现
-
-- common-controller：是api服务需要引用的。
-	* `增加一个swagger的依赖，大家可以通过 http://ip:port/doc.html`的url去访问我们api层面的接口文档，比swagger-ui.html界面更加美观（我是这么觉得的），需要大家自己在自己的api层继承该类：SwaggerBaseConfigurer
-	* `统一异常处理（ControllerExceptionHandleAdvice）：我只做了对controller层的统一处理，有需要可以自己添加修改`
-	* `springmvc的配置（WebMvcConfigurer），有兴趣的小伙伴可以自己看一看，主要是对springboot默认序列化的修改替换以及swagger的静态资源的访问权限`
-	* `增加限流功能（MappingLimit）：在方法上面加上注解即可，有兴趣的可以看看类 LimitAspect`
-	
-- common-security：顾名思义，springboot的安全配置，这里只讲几点，有兴趣的同学可以自己去研究下security，后续还有增加一个有访问权限的security，适用于管理后台的api
-	* `注解：Anonymous：加在方法或者类上，代表这个方法或者该类下所有的mapping方法可以免鉴权访问，否则所有的api必须登录后写到token来访问`
-	* `类（JwtUserDetailsServiceImpl）：远程调用member服务进行token有效性、正式性的校验判断实现类，如果需要修改，可以自行修改`
-	
-- common-export：自定义注解导出，只需要在实体类的field加上注解（Export即可），并且暂时只有csv的导出，如果需要excel的导出，大家可以自行添加
-
-- common-task：分布式定时任务，基于当当的 elastic job，当中有两个自定义注解：ElasticDataFlowJob、ElasticSimpleJob。
-
-	[elastic job](http://elasticjob.io/)
-	用法如下：
+```lua
+liyz
+├── common-parent -- 它是整个项目的父pom文件，里面主要包含了Springboot框架的版本，和一些常用工具包，方便以后升级版本
+└── common-base -- 基本包，也是整个项目的基本包。里面主要增加了一个Dubbo框架的处理
+	└── @Desensitization -- 自定义脱敏，这个自定义脱敏是基于fastjson，用法如下 注：我将springboot默认的jsckson序列化方式修改成了fastjson
 	
 	```java
-	@Slf4j
-	@ElasticSimpleJob(cron = "0 */1 * * * ?", description = "账户异常检查task", monitorPort = 1008, dataSource = TaskConstant.DEFAULT_DATASOURCE)
-	public class TestTask implements SimpleJob {
+	@Desensitization(endIndex = 3)
+	private String loginName;
 
-		@Autowired
-		UserInfoService userInfoService;
+	private String nickName;
 
-		@Override
-		public void execute(ShardingContext shardingContext) {
-			long start = System.currentTimeMillis();
-			try {
-				Thread.sleep(1000);
-				log.info("userInfo:{}", JSON.toJSONString(userInfoService.getById(1L)));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			log.info("TestTask:used {} ms", System.currentTimeMillis() - start);
-		}
-	}	
+	@Desensitization(DesensitizationType.REAL_NAME)
+	private String userName;
+
+	@Desensitization(DesensitizationType.MOBILE)
+	private String mobile;
+
+	@Desensitization(DesensitizationType.EMAIL)
+	private String email;
 	```
+	
+├── common-dao -- 服务中dao层需要引用，定义了通用mapper的顶层接口（mapper）、service层的顶层接口以及抽象类，所有大家对于单表操作不再需要维护一个*Mapper.xml文件了，当然了我在这里也提倡大家尽量单表操作，将多表关系在业务层来实现
+└── common-security -- Springboot的安全配置
+	└── @Anonymous -- 加在方法或者类上，代表这个方法或者该类下所有的mapping方法可以免鉴权访问，否则所有的api必须登录后写到token来访问
+└── ommon-controller -- 是api controller服务需要引用的
+	└── @Limits、@Limit -- 限流注解，可以对IP、mapping、以及总调用次数进行限流
+├── common-export -- 自定义注解导出，只需要在实体类的field加上注解（Export即可），并且暂时只有csv的导出，如果需要excel的导出，大家可以自行添加
+├── common-task -- 分布式定时任务，基于当当的 elastic job，当中有两个自定义注解：ElasticDataFlowJob、ElasticSimpleJob
+├── service-member -- 用户服务，可以自己扩展
+├── service-push -- 是一个基于netty的一个实时推送服务，当中的登陆依赖了 service-member，如果有认证中心或者需要修改认证的地方，可以自行修改
+├── service-task -- 分布式定时任务调度中心，具体的业务代码写在各个服务中，这个项目只用来触发，通过dubbo来远程调用
+├── api-web -- 对外统一的api出口，当然了大家也可以在每个服务对外开放api，看情况而定
+└── service-file -- 文件上传下载服务
 
+```
 
-- service-member：用户服务，可以自己扩展
-
-- service-datasource：多数据源数据质量管理服务
-
-- service-push：是一个基于netty的一个实时推送服务，当中的登陆依赖了 service-member，如果有认证中心或者需要修改认证的地方，可以自行修改
-
-- service-task：分布式定时任务调度中心，具体的业务代码写在各个服务中，这个项目只用来触发，通过dubbo来远程调用
-
-- service-file：文件服务器，当中包含了文件的上传、下载、修改、删除
-
-- api-web：对外统一的api出口，当然了大家也可以在每个服务对外开放api，看情况而定
+#### 开源共建
+1.如有问题可以提交[issue](https://github.com/ZhiQinIsZhen/dubbo-springboot-project/issues)
+2.如有需要Spring Cloud，请点击[Spring Cloud](https://github.com/ZhiQinIsZhen/springcloud-demo)
